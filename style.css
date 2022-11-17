@@ -85,6 +85,7 @@ header{
 #intro-page{
     position: absolute;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items:center;
     height: 100vh;
@@ -93,6 +94,9 @@ header{
 
 #intro-text{
     color: white;
+ 
+}
+.intro-text{
     padding: 40px;
     text-align: center;
     font-size: 80px;
@@ -100,17 +104,24 @@ header{
 }
 #yourself{
     opacity: 0;
-    color: rgb(255, 56, 56);
+
     animation: yourself-opacity normal  4s ;
     animation-delay: 2s;
     animation-fill-mode: forwards;
     font-style: italic;
+    transition: 1s;
+}
+#yourself{
+    color: rgb(255, 56, 56);
+}
+#rate{
+    color: white;
 }
 @keyframes y-move {
     from{
     }
     to{
-        transform: translateY(3px);
+        transform: translateY(-5px);
     }
 }
 @keyframes m-move {
@@ -130,4 +141,12 @@ header{
         /* text-shadow:3px 3px white; */
         opacity: 1;
     }
+}
+
+/* random movie section */
+
+#random-movie{
+    width: 100vw;
+    height: 100vh;
+
 }
