@@ -36,10 +36,7 @@ header{
 }
 #search{
     margin-right: 30px;
-    width: 40px;
-    background-color: #FF8D22;
-    
-
+    width: 40px;   
 }
 #logo{
     font-family: 'Manrope', sans-serif;
@@ -105,11 +102,11 @@ header{
 #yourself{
     opacity: 0;
 
-    animation: yourself-opacity normal 5s ;
+    animation: yourself-opacity normal 3s ;
     animation-delay: 1s;
     animation-fill-mode: forwards;
     font-style: italic;
-    transition: 1s;
+    transition: 1000ms;
 }
 #yourself{
     color: rgb(255, 56, 56);
@@ -164,12 +161,11 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 40PX;
     height: 500px;
 
 }
 #random-generator{
- height: 800px;
+ height: 600px;
  background-color: white;
  background-color: #FF8D22;;
  color: white;
@@ -178,7 +174,7 @@ header{
  align-items: center;
  justify-content: space-evenly;
  font-family: 'Josefin Sans', sans-serif;
- font-size: 40px;
+ font-size: 60px;
 }
 #random-button{
     font-family: 'Josefin Sans', sans-serif;
@@ -186,10 +182,10 @@ header{
     background-color: white;
     color: #FF8D22;;
     border: none;
-    width: 300px;
-    height: 70px;
+    width: 400px;
+    height: 90px;
     font-size: 27px;
-    border-radius:  14px;
+    border-radius:  20px;
 }
 
 
@@ -204,6 +200,7 @@ header{
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    /* border-bottom: white 3px solid; */
    
 }
 #week-img{
@@ -227,6 +224,7 @@ header{
     color: #72BE8B;
 }
 #week-pick-title{
+    padding-top: 15%;
  color: white;
  font-family: 'Manrope', sans-serif;
  font-size: 80px;
@@ -262,8 +260,43 @@ header{
 #breakfast-container{
     height: 100vh;
     width: 100vw;
-    background-image: url(/img/breakfast.jpeg);
+    display: flex;
+   
+}
+#breakfast-img{
+    height: 100%;
+    width: 40%;
+    background-image: url(/img/breakfast.png);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+}
+#moon-river-img{
+    height: 100vh;
+    background-image: url(/img/Moon-River-Audrey-Hepburn.jpeg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#breakfast-desc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Josefin Sans', sans-serif;
+    width: 60%;
+    height: 100%;
+    color: #296287;
+ font-size: 80px;
+}
+#breakfast-title{
+    padding-top: 100px;
+    text-align: center;
+  
+}
+#break-desc{
+     color: white;
+    width: 70%;
+    font-size: 55px;
+    text-align: center;
 }

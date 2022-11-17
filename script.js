@@ -1,6 +1,6 @@
 const yourself = document.getElementById("yourself");
 const rateHover = document.getElementById("intro-text");
-const yourselfMovies = ["Goodfellas","The Big Short","Big Daddy"];
+const yourselfMovies = ["Goodfellas","The Big Short","Kill Bill Vol.I", "Kill Bill Vol.II", "Big Daddy"];
 let movieNumber=0;
 let movieRateText = "rate "+yourselfMovies[movieNumber]+" yourself";
 let rate = "rate";
