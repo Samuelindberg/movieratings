@@ -1,6 +1,6 @@
 const yourself = document.getElementById("yourself");
 const rateHover = document.getElementById("intro-text");
-const yourselfMovies = ["Goodfellas","The Big Short"];
+const yourselfMovies = ["Goodfellas","The Big Short","Big Daddy"];
 let movieNumber=0;
 let movieRateText = "rate "+yourselfMovies[movieNumber]+" yourself";
 let rate = "rate";
@@ -9,22 +9,23 @@ let rate = "rate";
 rateHover.addEventListener("mouseover", () => {  
     rateHover.style.color="#FE4500";
     // if(movieNumber<yourselfMovies){
-        if(yourselfMovies.length>movieNumber){
             if(movieNumber==0){
+                rateHover.style.display="block";
                 rateHover.innerText ="like " + yourselfMovies[movieNumber]; 
-            }
-            // }else{
-            //     if(movieNumber<=yourselfMovies){
-                 else{
-                    rateHover.innerText ="or " + yourselfMovies[movieNumber]; 
-                 } 
-        }
-        
-        //     }
-        // }
-         
-    // }
 
+            }
+            else{
+                rateHover.innerText ="Even " + yourselfMovies[2]; 
+            
+                rateHover.innerText ="or " + yourselfMovies[movieNumber]; 
+            }
+            if(movieNumber>=yourselfMovies.length){
+              movieNumber--
+            }
+                
+            
+       
+          
     console.log(movieNumber);
     movieNumber++
 });

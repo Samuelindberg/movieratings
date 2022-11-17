@@ -4,12 +4,12 @@
 }
 .wrapper{
     z-index: -2;
-    height: 100vh;
     background-color: #ff8d22;
+    perspective: 10px;
 }
 header{
     z-index: 1;
-    background-color: rgb(255, 218, 176);
+    background-color:white;
     position: fixed;
     display: flex;
     justify-content: space-between;
@@ -29,6 +29,7 @@ header{
     background-color:white;
     border-radius: 10px;
     transition: 200ms;
+    background-color: #FF8D22;
 }
 #menu{
     font-size: 40px;
@@ -36,6 +37,8 @@ header{
 #search{
     margin-right: 30px;
     width: 40px;
+    background-color: #FF8D22;
+    
 
 }
 #logo{
@@ -43,9 +46,6 @@ header{
     color: #ff8d22;
     font-size: 80px;
     transform: translateY(0px);
-}
- .logo #m{
-    color: rgb(255, 123, 0);
 }
 #y{
     transform: translateY(3px);
@@ -64,14 +64,14 @@ header{
     opacity: 1;
     font-size: 80px;
     animation: m-move normal  2s ;
-    animation-delay: 1.5s;
+    animation-delay: 0.5s;
     animation-fill-mode: forwards;
 }
 #y{
     color: orangered;
     animation: y-move normal  2s ;
     animation-fill-mode: forwards;
-    animation-delay: 2s;
+    animation-delay:0.7s;
     transform: translateY(-200px);
     font-size: 80px;
     font-weight: 700;
@@ -83,7 +83,7 @@ header{
 }
 /* intro page */
 #intro-page{
-    position: absolute;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,7 +97,7 @@ header{
  
 }
 .intro-text{
-    padding: 40px;
+    color: white;
     text-align: center;
     font-size: 80px;
     font-family: 'Josefin Sans', sans-serif;
@@ -105,8 +105,8 @@ header{
 #yourself{
     opacity: 0;
 
-    animation: yourself-opacity normal  4s ;
-    animation-delay: 2s;
+    animation: yourself-opacity normal 5s ;
+    animation-delay: 1s;
     animation-fill-mode: forwards;
     font-style: italic;
     transition: 1s;
@@ -147,6 +147,123 @@ header{
 
 #random-movie{
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
+   background-image: url("/img/graduate.png");
+   background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#random-movie-title{
+    font-family: 'Manrope', sans-serif;
+    font-size: 150px;
+    max-width: 90vw;
+    color: #FF8D22;
+}
+.random-title-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40PX;
+    height: 500px;
 
+}
+#random-generator{
+ height: 800px;
+ background-color: white;
+ background-color: #FF8D22;;
+ color: white;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-evenly;
+ font-family: 'Josefin Sans', sans-serif;
+ font-size: 40px;
+}
+#random-button{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    background-color: white;
+    color: #FF8D22;;
+    border: none;
+    width: 300px;
+    height: 70px;
+    font-size: 27px;
+    border-radius:  14px;
+}
+
+
+/* week picks */
+#week-picks-container{
+    height: 60vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-image: url("/img/real-intothewild.jpeg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+#week-img{
+    width:100%;
+    height: 100%;
+     /* background-color: blue; */
+
+
+}
+#week-picks{
+    top: 30%;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: white;
+    font-size: 60px;
+    color: #72BE8B;
+}
+#week-pick-title{
+ color: white;
+ font-family: 'Manrope', sans-serif;
+ font-size: 80px;
+}
+
+#img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:40%;
+    width:100%
+    
+}
+
+#week-picks-content{
+    height: 100vh;
+   background-image: url(/img/Into-The-Wild-movie.webp);
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+#into-title{
+    padding-top: 60px;
+}
+#into-desc{
+    font-size: 45px;
+    text-align: center;
+   
+}
+#into-genre{
+    font-size: 20px;
+}
+#breakfast-container{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(/img/breakfast.jpeg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
