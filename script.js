@@ -1,0 +1,1 @@
+const yourself = document.getElementById("yourself");
