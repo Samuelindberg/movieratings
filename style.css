@@ -6,6 +6,7 @@
     z-index: -2;
     background-color: #ff8d22;
     perspective: 10px;
+    perspective: 10px;
 }
 header{
     z-index: 1;
@@ -161,11 +162,11 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 500px;
+    height: 50vh;
 
 }
 #random-generator{
- height: 600px;
+ height: 80vh;
  background-color: white;
  background-color: #FF8D22;;
  color: white;
@@ -180,12 +181,19 @@ header{
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 400;
     background-color: white;
-    color: #FF8D22;;
+    color: #FF8D22;
     border: none;
     width: 400px;
     height: 90px;
     font-size: 27px;
     border-radius:  20px;
+}
+#random-button:hover{
+    background-color: #FF8D22;
+    border: white solid 4px;
+    color: white;
+    transition: 200ms;
+    transform:translate(0,-10px)
 }
 
 
@@ -196,7 +204,7 @@ header{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-image: url("/img/real-intothewild.jpeg");
+    background-image: url("/img/real-intothewild.png");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -222,6 +230,7 @@ header{
     background-color: white;
     font-size: 60px;
     color: #72BE8B;
+   
 }
 #week-pick-title{
     padding-top: 15%;
@@ -261,6 +270,7 @@ header{
     height: 100vh;
     width: 100vw;
     display: flex;
+    
    
 }
 #breakfast-img{
@@ -271,13 +281,7 @@ header{
     background-repeat: no-repeat;
     background-size: contain;
 }
-#moon-river-img{
-    height: 100vh;
-    background-image: url(/img/Moon-River-Audrey-Hepburn.jpeg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
+
 #breakfast-desc{
     display: flex;
     flex-direction: column;
@@ -290,13 +294,82 @@ header{
  font-size: 80px;
 }
 #breakfast-title{
-    padding-top: 100px;
+    padding-top: 50px;
     text-align: center;
   
 }
 #break-desc{
      color: white;
-    width: 70%;
+    width: 80%;
     font-size: 55px;
     text-align: center;
 }
+#breakgenre{
+    font-size: 25px;
+    color: white;
+}
+#the-big-ebowski-pic{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/img/The-Big-Lebowski.jpeg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#big-text{
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+    font-size: 40px;
+    width: 60%;
+    text-align: center;
+}
+#the-big-title{
+    font-family: 'DM Serif Display', serif;
+  font-size: 150PX;
+  color: #FF8D22;
+   animation: big-italic 2s infinite;
+ }
+ #the-big-desc{
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+   
+    align-items: center;
+    height: 20%;
+    background-color: white;
+    color: #FF8D22;
+ }
+ #big-desc-container
+ {
+    font-family: 'Josefin Sans', sans-serif;
+    height: 100vh;
+    width: 100vw;
+   background-image: url(/img/vice.webp);
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-size: cover;
+   color: white;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    overflow-x: hidden;
+
+ }
+
+.hidden{
+   opacity: 0;
+   transition: all 2s;
+}
+ .show{
+    opacity: 1;
+ }
+ @keyframes big-italic {
+    0%{ text-shadow: 8px 8px orangered; transform: scale(100%);} 
+    50%{ text-shadow: 4px 4px orangered; transform: scale (150%);}
+    100%{text-shadow: 8px 8px orangered; transform:scale(100%);}
+ }
