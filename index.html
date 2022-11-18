@@ -13,12 +13,9 @@
     <header>
         <div id="hamburger-menu">
             <div id="hamburger-links">
-                <!-- <div id="top-menu">
-
-                </div> -->
                 <a href="" class="menu-items" id="watched">Watched movies</a>
                 <a href="" class="menu-items" id="goat">Your favorites</a>
-                <a href="" class="menu-items" id="favoritegenre"></a>
+                <a href="" class="menu-items" id="favoritegenre">Favorite Genres</a>
               </div>
             <div onclick="menuOpen()" id="hamburger-icon">
                 <div id="bar1" class="hamburger-bar"></div>
@@ -43,8 +40,8 @@
                  <span id="span">rate </span> movies <span id="yourself">yourself</span> <br> </h1>
                   <h1 class="intro-text"> without other peoples influence! </h1>
                   <label for="search" id="search-label">Search for a movie</label>
-                  <input id="search-input"></input>
-                  <a href="" id="search">search</a>
+                  <input id="search-input" type="text">
+                  <a onclick="submitSearch()" href="/search.html" id="search">search</a>
             </h1>
         </section>
      <section id="random-movie">

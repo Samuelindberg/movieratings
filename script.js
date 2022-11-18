@@ -13,6 +13,7 @@ let movieRateText = "rate "+yourselfMovies[movieNumber]+" yourself";
 let rate = "rate";
 let inputSearch = document.getElementById("search-input");
 let labelSearch = document.getElementById("search-label");
+let searchTerm = "";
 // const bigContainer=document.getElementById("big-desc-container");
 // const observer = new IntersectionObserver((entries)=>{
 //             bigContainer.classList.add("show");
@@ -21,35 +22,37 @@ const viewportHeight = document.documentElement.clientHeight;
 const viewportWidth = document.documentElement.clientWidth;     
 
 
-
-rateHover.addEventListener("mouseover", () => {  
-    rateHover.style.color="#FE4500";
-    // if(movieNumber<yourselfMovies){
-            if(movieNumber==0){
-                rateHover.style.display="block";
-                rateHover.innerText ="like " + yourselfMovies[movieNumber]; 
-
-            }
-            else{
-                rateHover.innerText ="Even " + yourselfMovies[2]; 
-            
-                rateHover.innerText ="or " + yourselfMovies[movieNumber]; 
-            }
-            if(movieNumber>=yourselfMovies.length){
-              movieNumber--
-            }
-    console.log(movieNumber);
-    movieNumber++
-});
-rateHover.addEventListener("click", () => {
-    rateHover.innerText ="or " + yourselfMovies[movieNumber];
-    movieNumber++
-});
-
-inputSearch.addEventListener("click",()=>{
-    inputSearch.style.transform="scale(1.1)";
-    labelSearch.style.transform="scale(0.9)";
-});
+if(document.URL==="index.html"){
+    rateHover.addEventListener("mouseover", () => {  
+        rateHover.style.color="#FE4500";
+        // if(movieNumber<yourselfMovies){
+                if(movieNumber==0){
+                    rateHover.style.display="block";
+                    rateHover.innerText ="like " + yourselfMovies[movieNumber]; 
+    
+                }
+                else{
+                    rateHover.innerText ="Even " + yourselfMovies[2]; 
+                
+                    rateHover.innerText ="or " + yourselfMovies[movieNumber]; 
+                }
+                if(movieNumber>=yourselfMovies.length){
+                  movieNumber--
+                }
+        console.log(movieNumber);
+        movieNumber++
+    });
+    rateHover.addEventListener("click", () => {
+        rateHover.innerText ="or " + yourselfMovies[movieNumber];
+        movieNumber++
+    });
+    
+    inputSearch.addEventListener("click",()=>{
+        inputSearch.style.transform="scale(1.1)";
+        labelSearch.style.transform="scale(0.9)";
+    });
+    
+}
 
 const menuOpen = ()=>{
     if(hamburgerIconContainer.bar1.style.backgroundColor=="white"){
@@ -69,3 +72,14 @@ const menuOpen = ()=>{
     }   
 
 }
+
+function submitSearch(){
+    let searchTerm= inputSearch.value;
+    console.log(searchTerm);
+    alert(searchTerm);
+    // document.querySelector("#search-title").innerText=searchTerm;
+
+}
+
+
+
