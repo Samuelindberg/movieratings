@@ -21,8 +21,10 @@ let searchTerm = "";
 const viewportHeight = document.documentElement.clientHeight;
 const viewportWidth = document.documentElement.clientWidth;     
 
+let path = window.location.pathname;
+let page = path.split("/").pop();
 
-if(document.URL==="index.html"){
+if(page=="index.html"){
     rateHover.addEventListener("mouseover", () => {  
         rateHover.style.color="#FE4500";
         // if(movieNumber<yourselfMovies){
@@ -55,6 +57,8 @@ if(document.URL==="index.html"){
 }
 
 const menuOpen = ()=>{
+   
+console.log(page);
     if(hamburgerIconContainer.bar1.style.backgroundColor=="white"){
         hamburgerLinks.style.animation= "hamburger-links-close 1s forwards";
         hamburgerIconContainer.bar1.style.transform="rotate(0) translate(0,0)";
