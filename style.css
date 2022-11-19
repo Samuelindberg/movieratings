@@ -575,18 +575,93 @@ header{
     font-size: 90px;
     height: 100px;
 }
+/* acting stars */
 .acting-stars{
     display: flex;
 }
 .acting-stars img{
     width:60px;
 }
+
 .acting-yellow-stars{
     display: flex;
     position: absolute;
     transform: translateY(50px);
 }
+
 .acting-yellow-stars *{
+    opacity: 0;
+    transform: scale(2);
+    width: 60px;
+}
+/* story stars */
+.story-stars{
+    display: flex;
+}
+.story-stars img{
+    width:60px;
+}
+.story-yellow-stars{
+    display: flex;
+    position: absolute;
+    transform: translateY(50px);
+}
+
+.story-yellow-stars *{
+    opacity: 0;
+    transform: scale(2);
+    width: 60px;
+}
+/* dialogue stars */
+.dialogue-stars{
+    display: flex;
+}
+.dialogue-stars img{
+    width:60px;
+}
+.dialogue-yellow-stars{
+    display: flex;
+    position: absolute;
+    transform: translateY(50px);
+}
+
+.dialogue-yellow-stars *{
+    opacity: 0;
+    transform: scale(2);
+    width: 60px;
+}
+/* character stars */
+.characters-stars{
+    display: flex;
+}
+.characters-stars img{
+    width:60px;
+}
+.characters-yellow-stars{
+    display: flex;
+    position: absolute;
+    transform: translateY(50px);
+}
+
+.characters-yellow-stars *{
+    opacity: 0;
+    transform: scale(2);
+    width: 60px;
+}
+/*visuals stars */
+.visuals-stars{
+    display: flex;
+}
+.visuals-stars img{
+    width:60px;
+}
+.visuals-yellow-stars{
+    display: flex;
+    position: absolute;
+    transform: translateY(50px);
+}
+
+.visuals-yellow-stars *{
     opacity: 0;
     transform: scale(2);
     width: 60px;

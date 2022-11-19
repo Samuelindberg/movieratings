@@ -23,10 +23,27 @@ const viewportWidth = document.documentElement.clientWidth;
 
 let path = window.location.pathname;
 let page = path.split("/").pop();
+
 const actingRating = {
     displayStars:[document.getElementById("actingstar1"),document.getElementById("actingstar2"),document.getElementById("actingstar3"),document.getElementById("actingstar4"),document.getElementById("actingstar5")],
     glowingStars:[document.getElementById("actingyellow1"),document.getElementById("actingyellow2"),document.getElementById("actingyellow3"),document.getElementById("actingyellow4"),document.getElementById("actingyellow5")]
-}
+};
+const storyRating = {
+    displayStars:[document.getElementById("storystar1"),document.getElementById("storystar2"),document.getElementById("storystar3"),document.getElementById("storystar4"),document.getElementById("storystar5")],
+    glowingStars:[document.getElementById("storyyellow1"),document.getElementById("storyyellow2"),document.getElementById("storyyellow3"),document.getElementById("storyyellow4"),document.getElementById("storyyellow5")]
+};
+const dialogueRating = {
+    displayStars:[document.getElementById("dialoguestar1"),document.getElementById("dialoguestar2"),document.getElementById("dialoguestar3"),document.getElementById("dialoguestar4"),document.getElementById("dialoguestar5")],
+    glowingStars:[document.getElementById("dialogueyellow1"),document.getElementById("dialogueyellow2"),document.getElementById("dialogueyellow3"),document.getElementById("dialogueyellow4"),document.getElementById("dialogueyellow5")]
+};
+const charactersRating = {
+    displayStars:[document.getElementById("charactersstar1"),document.getElementById("charactersstar2"),document.getElementById("charactersstar3"),document.getElementById("charactersstar4"),document.getElementById("charactersstar5")],
+    glowingStars:[document.getElementById("charactersyellow1"),document.getElementById("charactersyellow2"),document.getElementById("charactersyellow3"),document.getElementById("charactersyellow4"),document.getElementById("charactersyellow5")]
+};
+const visualsRating = {
+    displayStars:[document.getElementById("visualsstar1"),document.getElementById("visualsstar2"),document.getElementById("visualsstar3"),document.getElementById("visualsstar4"),document.getElementById("visualsstar5")],
+    glowingStars:[document.getElementById("visualsyellow1"),document.getElementById("visualsyellow2"),document.getElementById("visualsyellow3"),document.getElementById("visualsyellow4"),document.getElementById("visualsyellow5")]
+};
 
 if(page=="index.html"){
     rateHover.addEventListener("mouseover", () => {  
@@ -83,8 +100,6 @@ console.log(page);
 
 function submitSearch(){
     let searchTerm= inputSearch.value;
-    console.log(searchTerm);
-    alert(searchTerm);
     // document.querySelector("#search-title").innerText=searchTerm;
 
 }
@@ -92,8 +107,19 @@ function submitSearch(){
 
 // rating 
 
-function actingStarsHover(n){
+function StarsHover(n,cat){
     for(i=0;i<=n;i++){
-        actingRating.glowingStars[i].style.opacity=1;
+        cat.glowingStars[i].style.opacity=1;
+        cat.displayStars[i].style.opacity=0;
+    }
+    for(i=4; i>n;i--){
+        cat.glowingStars[i].style.opacity=0;
+        cat.displayStars[i].style.opacity=1;
     }
 }
+// function leaveStars(cat){
+//     for(i=0; i>=4;i++){
+//         cat.glowingStars[i].style.opacity=0;
+//         cat.displayStars[i].style.opacity=1;
+//     }
+// }
