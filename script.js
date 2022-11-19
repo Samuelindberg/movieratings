@@ -23,6 +23,10 @@ const viewportWidth = document.documentElement.clientWidth;
 
 let path = window.location.pathname;
 let page = path.split("/").pop();
+const actingRating = {
+    displayStars:[document.getElementById("actingstar1"),document.getElementById("actingstar2"),document.getElementById("actingstar3"),document.getElementById("actingstar4"),document.getElementById("actingstar5")],
+    glowingStars:[document.getElementById("actingyellow1"),document.getElementById("actingyellow2"),document.getElementById("actingyellow3"),document.getElementById("actingyellow4"),document.getElementById("actingyellow5")]
+}
 
 if(page=="index.html"){
     rateHover.addEventListener("mouseover", () => {  
@@ -86,4 +90,10 @@ function submitSearch(){
 }
 
 
+// rating 
 
+function actingStarsHover(n){
+    for(i=0;i<=n;i++){
+        actingRating.glowingStars[i].style.opacity=1;
+    }
+}
