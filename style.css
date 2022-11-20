@@ -565,7 +565,9 @@ header{
     /* border: solid red 1px; */
     font-family: 'Josefin Sans', sans-serif;
     font-size: 50px;
+    height: fit-content;
 }
+
 #rating-title{
     padding-top: 40px;
     font-family: 'Josefin Sans', sans-serif;
@@ -575,6 +577,7 @@ header{
     font-size: 90px;
     height: 100px;
 }
+
 /* acting stars */
 .acting-stars{
     display: flex;
@@ -662,6 +665,24 @@ header{
 }
 
 .visuals-yellow-stars *{
+    opacity: 0;
+    transform: scale(2);
+    width: 60px;
+}
+/*execution stars */
+.execution-stars{
+    display: flex;
+}
+.execution-stars img{
+    width:60px;
+}
+.execution-yellow-stars{
+    display: flex;
+    position: absolute;
+    transform: translateY(50px);
+}
+
+.execution-yellow-stars *{
     opacity: 0;
     transform: scale(2);
     width: 60px;

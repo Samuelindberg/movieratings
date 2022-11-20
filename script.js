@@ -27,22 +27,32 @@ let page = path.split("/").pop();
 const actingRating = {
     displayStars:[document.getElementById("actingstar1"),document.getElementById("actingstar2"),document.getElementById("actingstar3"),document.getElementById("actingstar4"),document.getElementById("actingstar5")],
     glowingStars:[document.getElementById("actingyellow1"),document.getElementById("actingyellow2"),document.getElementById("actingyellow3"),document.getElementById("actingyellow4"),document.getElementById("actingyellow5")]
+    ,rating:0
 };
 const storyRating = {
     displayStars:[document.getElementById("storystar1"),document.getElementById("storystar2"),document.getElementById("storystar3"),document.getElementById("storystar4"),document.getElementById("storystar5")],
     glowingStars:[document.getElementById("storyyellow1"),document.getElementById("storyyellow2"),document.getElementById("storyyellow3"),document.getElementById("storyyellow4"),document.getElementById("storyyellow5")]
+    ,rating:0
 };
 const dialogueRating = {
     displayStars:[document.getElementById("dialoguestar1"),document.getElementById("dialoguestar2"),document.getElementById("dialoguestar3"),document.getElementById("dialoguestar4"),document.getElementById("dialoguestar5")],
     glowingStars:[document.getElementById("dialogueyellow1"),document.getElementById("dialogueyellow2"),document.getElementById("dialogueyellow3"),document.getElementById("dialogueyellow4"),document.getElementById("dialogueyellow5")]
+    ,rating:0
 };
 const charactersRating = {
     displayStars:[document.getElementById("charactersstar1"),document.getElementById("charactersstar2"),document.getElementById("charactersstar3"),document.getElementById("charactersstar4"),document.getElementById("charactersstar5")],
     glowingStars:[document.getElementById("charactersyellow1"),document.getElementById("charactersyellow2"),document.getElementById("charactersyellow3"),document.getElementById("charactersyellow4"),document.getElementById("charactersyellow5")]
+    ,rating:0
+};
+const executionRating = {
+    displayStars:[document.getElementById("executionstar1"),document.getElementById("executionstar2"),document.getElementById("executionstar3"),document.getElementById("executionstar4"),document.getElementById("executionstar5")],
+    glowingStars:[document.getElementById("executionyellow1"),document.getElementById("executionyellow2"),document.getElementById("executionyellow3"),document.getElementById("executionyellow4"),document.getElementById("executionyellow5")]
+    ,rating:0
 };
 const visualsRating = {
     displayStars:[document.getElementById("visualsstar1"),document.getElementById("visualsstar2"),document.getElementById("visualsstar3"),document.getElementById("visualsstar4"),document.getElementById("visualsstar5")],
     glowingStars:[document.getElementById("visualsyellow1"),document.getElementById("visualsyellow2"),document.getElementById("visualsyellow3"),document.getElementById("visualsyellow4"),document.getElementById("visualsyellow5")]
+    ,rating:0
 };
 
 if(page=="index.html"){
@@ -112,9 +122,15 @@ function StarsHover(n,cat){
         cat.glowingStars[i].style.opacity=1;
         cat.displayStars[i].style.opacity=0;
     }
-    for(i=4; i>n;i--){
+    for(i=4; i>=n;i--){
         cat.glowingStars[i].style.opacity=0;
         cat.displayStars[i].style.opacity=1;
+    }
+    if(n==4){
+        cat.displayStars[4].style.opacity=0;
+        cat.glowingStars[4].style.opacity=1;
+        cat.glowingStars[5].style.opacity=1;
+        cat.displayStars[5].style.opacity=0;
     }
 }
 // function leaveStars(cat){
@@ -123,3 +139,18 @@ function StarsHover(n,cat){
 //         cat.displayStars[i].style.opacity=1;
 //     }
 // }
+
+
+document.querySelectorAll(".acting-yellow-stars *").forEach(star=>
+    star.addEventListener("click", event =>{
+      alert("funkar");
+      for(i=0;i<=4;i++){
+        if(actingRating.glowingStars[i].style.opacity===1){
+            actingRating.glowingStars[i].style.opacity=1;
+           actingRating.rating++ 
+        }else{
+            actingRating.displayStars[i].style.opacity=0;
+        }
+      }
+    }));
+
