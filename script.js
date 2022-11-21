@@ -108,11 +108,7 @@ console.log(page);
 
 }
 
-function submitSearch(){
-    let searchTerm= inputSearch.value;
-    // document.querySelector("#search-title").innerText=searchTerm;
 
-}
 
 
 // rating 
@@ -154,3 +150,21 @@ document.querySelectorAll(".acting-yellow-stars *").forEach(star=>
       }
     }));
 
+
+    
+
+// api 
+
+
+async function searchMovie(searchTitle){
+    const movie_URL = "https://api.themoviedb.org/3/movie/550?"+searchTitle+"api_key=1deb0326fc3b1f89371e34530d9740a3";
+   const response = await fetch(movie_URL);
+   const data = await response.json();
+   console.log(data);
+   document.getElementById("search-title").innerHTML=data.Title;
+   document.getElementById("search-desc").innerHTML=data.Plot;
+}
+function submitSearch(){
+    const searchTerm= window.prompt("search a movie");
+    searchMovie(searchTerm);
+}
