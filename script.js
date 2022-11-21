@@ -147,10 +147,11 @@ document.querySelectorAll(".acting-yellow-stars *").forEach(star=>
 
 // api 
 async function searchMovie(searchTitle){
-   const movie_URL = `https://www.omdbapi.com/?s=${searchTitle}&APIKEY=d442cd11`;
+   const movie_URL = ` https://api.themoviedb.org/3/search/movie?api_key=1deb0326fc3b1f89371e34530d9740a3&query= ${searchTitle}`;
    const response = await fetch(movie_URL);
    const data = await response.json();
    displayMovieList(data);
+   console.log(data);
 }
  function submitSearch(){
     console.log(inputSearch.value);
@@ -162,29 +163,26 @@ function findMovies(){
     if(searchTerm.length>0){
        searchMovie(searchTerm);
     } else{
-
     }
 }
 function test(){
     console.log("test");
 }
 function displayMovieList(movies){  
-
+   
     searchlist.innerHTML="";
     
         for(let idx = 0; idx<5;idx++){
+            console.log(movies);
             let movieListItem = document.createElement("div");
-        movieListItem.innerHTML=
-        `
-        <div class = "search-item-thumbnail">
-            <img src = "${moviePoster}">
-        </div>
-        <div class = "search-item-info">
-            <h3>${movies.Search[idx].Title}</h3>
-            <p>${movies.Search[idx].Year}</p>
-        </div>
-        `;
-        // `<h1>${movies.Search[idx].Title}</h1>`;
-        // searchlist.appendChild(movieListItem);
+        movieListItem.innerHTML=`
+        <div class="search-img">
+    </div>
+    <div class="search-info">
+        <h1 class="search-title">${movies.results[idx].title}</h1>
+        <p class="search-actors">Actors: </p>
+        <p class="search-release">release year:${movies.results[idx].release_date}</p>
+    </div>`;
+        searchlist.appendChild(movieListItem);
     }
 }
