@@ -13,10 +13,7 @@ let movieRateText = "rate "+yourselfMovies[movieNumber]+" yourself";
 let rate = "rate";
 let inputSearch = document.getElementById("search-input");
 let labelSearch = document.getElementById("search-label");
-// const bigContainer=document.getElementById("big-desc-container");
-// const observer = new IntersectionObserver((entries)=>{
-//             bigContainer.classList.add("show");
-//     })
+let searchlist = document.getElementById("result-container");
 const viewportHeight = document.documentElement.clientHeight;
 const viewportWidth = document.documentElement.clientWidth;     
 
@@ -149,19 +146,14 @@ document.querySelectorAll(".acting-yellow-stars *").forEach(star=>
     
 
 // api 
-
-
 async function searchMovie(searchTitle){
-   const movie_URL = `https://www.omdbapi.com/?t=${searchTitle}&APIKEY=d442cd11`;
+   const movie_URL = `https://www.omdbapi.com/?s=${searchTitle}&APIKEY=d442cd11`;
    const response = await fetch(movie_URL);
    const data = await response.json();
-   console.log(data);
-//    document.getElementById("search-title").innerHTML=data.Title;
-//    document.getElementById("search-desc").innerHTML=data.Plot;
+   displayMovieList(data);
 }
  function submitSearch(){
     console.log(inputSearch.value);
-
     searchMovie(inputSearch.value);
 };
 
@@ -173,10 +165,26 @@ function findMovies(){
 
     }
 }
+function test(){
+    console.log("test");
+}
+function displayMovieList(movies){  
 
-function displayMovieList(movies){
-    for(let id = 0; id<movies.length;id++){
-        let movieListitem = document.createElement("div");
-        console.log(movieListitem);
+    searchlist.innerHTML="";
+    
+        for(let idx = 0; idx<5;idx++){
+            let movieListItem = document.createElement("div");
+        movieListItem.innerHTML=
+        `
+        <div class = "search-item-thumbnail">
+            <img src = "${moviePoster}">
+        </div>
+        <div class = "search-item-info">
+            <h3>${movies.Search[idx].Title}</h3>
+            <p>${movies.Search[idx].Year}</p>
+        </div>
+        `;
+        // `<h1>${movies.Search[idx].Title}</h1>`;
+        // searchlist.appendChild(movieListItem);
     }
 }
