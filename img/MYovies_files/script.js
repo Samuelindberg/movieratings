@@ -106,6 +106,10 @@ console.log(page);
     }   
 
 }
+
+
+
+
 // rating 
 
 function StarsHover(n,cat){
@@ -152,31 +156,29 @@ document.querySelectorAll(".acting-yellow-stars *").forEach(star=>
 
 
 async function searchMovie(searchTitle){
-   const movie_URL = `https://www.omdbapi.com/?t=${searchTitle}&APIKEY=d442cd11`;
+    const movie_URL = `https://www.omdbapi.com/?t=${searchTitle}&APIKEY=d442cd11`;
    const response = await fetch(movie_URL);
    const data = await response.json();
    console.log(data);
-//    document.getElementById("search-title").innerHTML=data.Title;
-//    document.getElementById("search-desc").innerHTML=data.Plot;
+   document.getElementById("search-title").innerHTML=data.Title;
+   document.getElementById("search-desc").innerHTML=data.Plot;
 }
+// searchMovie(movie);
  function submitSearch(){
-    console.log(inputSearch.value);
-
-    searchMovie(inputSearch.value);
+ 
 };
+const movie = prompt("film?");
+searchMovie(movie);
 
-function findMovies(){
-    let searchTerm = (inputSearch.value).trim();
-    if(searchTerm.length>0){
-       searchMovie(searchTerm);
-    } else{
 
-    }
+async function searchPoster(searchTitle){
+    const movie_URL = `https://www.myapifilms.com/imdb/image/${searchTitle}`;
+   const response = await fetch(movie_URL);
+   const data = await response.json();
+   console.log(data);
 }
 
-function displayMovieList(movies){
-    for(let id = 0; id<movies.length;id++){
-        let movieListitem = document.createElement("div");
-        console.log(movieListitem);
-    }
-}
+
+
+
+

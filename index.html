@@ -40,8 +40,25 @@
                  <span id="span">rate </span> movies <span id="yourself">yourself</span> <br> </h1>
                   <h1 class="intro-text"> without other peoples influence! </h1>
                   <label for="search" id="search-label">Search for a movie</label>
-                  <input id="search-input" type="text">
-                  <a onclick="submitSearch()" href="/search.html" id="search">search</a>
+                  <input onkeyup="findMovies()" id="search-input" type="text">
+             
+                    <a onclick="submitSearch()" id="search">search</a>
+                    <div class = "result-container">
+                        <div class = "result-grid" id = "result-grid">
+                        <div class = "movie-poster">
+                                <img src = "medium-cover.jpg" alt = "movie poster">
+                            </div>
+                            <div class = "movie-info">
+                                <h3 class = "movie-title">Guardians of the Galaxy Vol. 2</h3>
+                                <ul class = "movie-misc-info">
+                                    <li class = "year">Year: 2017</li>
+                                </ul>
+                             </div>
+                        </div>
+                    </div>
+          
+
+
             </h1>
             <img src="/img/arrowdown.svg" alt="" id="arrow-down">
         </section>

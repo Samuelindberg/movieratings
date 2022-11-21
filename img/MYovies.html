@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://127.0.0.1:5500/movieAPI.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYovies</title>
+    <link rel="stylesheet" href="./MYovies_files/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./MYovies_files/css2" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div id="hamburger-menu">
+            <div id="hamburger-links">
+                <a href="http://127.0.0.1:5500/index.html" class="menu-items" id="home">Home</a>
+                <a href="http://127.0.0.1:5500/movieAPI.html" class="menu-items" id="watched">Watched movies</a>
+                <a href="http://127.0.0.1:5500/movieAPI.html" class="menu-items" id="goat">Your favorites</a>
+                <a href="http://127.0.0.1:5500/movieAPI.html" class="menu-items" id="favoritegenre">Favorite Genres</a>
+              </div>
+            <div onclick="menuOpen()" id="hamburger-icon-search">
+                <div id="bar1" class="hamburger-bar"></div>
+                <div id="bar2" class="hamburger-bar"></div>
+                <div id="bar3" class="hamburger-bar"></div>
+            </div>
+            </div>
+            <div class="logo">
+                <h1 class="my">M</h1>
+                <h1 class="my">y</h1>
+                <h1 id="logo">OVIES</h1>
+            </div>
+         <img src="./MYovies_files/search.svg" alt="" id="search-icon">
+        
+      </header>
+
+      <div id="wrapper-movie">
+        <div class="wrapper-search">
+            <div id="search-desc-container">
+                <h1 id="search-title">Kung Fu Panda</h1>
+                <p id="search-desc">To everyone's surprise, including his own, Po, an overweight, clumsy panda, is chosen as protector of the Valley of Peace. His suitability will soon be tested as the valley's arch-enemy is on his way.</p>
+            </div>
+            <div id="poster">
+            </div>
+           
+      </div>
+      <div id="rating-background">
+        <div id="rating-container">
+      
+            <h1 id="rating-title">SEEN IT? RATE IT!</h1>
+           <div class="criterias">
+            <label id="acting-title" for="acting">Acting</label>
+            <div class="acting-stars">
+                <img id="actingstar1" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                <img id="actingstar2" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                <img id="actingstar3" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                <img id="actingstar4" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                <img id="actingstar5" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+            </div>
+     
+            <div class="acting-yellow-stars">
+                <img onmouseenter="StarsHover(0,actingRating)" id="actingyellow1" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                <img onmouseenter="StarsHover(1,actingRating)" id="actingyellow2" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                <img onmouseenter="StarsHover(2,actingRating)" id="actingyellow3" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                <img onmouseenter="StarsHover(3,actingRating)" id="actingyellow4" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                <img onmouseenter="StarsHover(4,actingRating)" id="actingyellow5" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+            </div>
+        </div>
+     
+           <div class="criterias">
+            <label id="story-title" for="dialogue">Story</label>
+            <div class="story-stars">
+                <img id="storystar1" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                <img id="storystar2" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                <img id="storystar3" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                <img id="storystar4" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                <img id="storystar5" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+            </div>
+            <div class="story-yellow-stars">
+                <img onmouseenter="StarsHover(0,storyRating)" id="storyyellow1" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                <img onmouseenter="StarsHover(1,storyRating)" id="storyyellow2" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                <img onmouseenter="StarsHover(2,storyRating)" id="storyyellow3" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                <img onmouseenter="StarsHover(3,storyRating)" id="storyyellow4" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                <img onmouseenter="StarsHover(4,storyRating)" id="storyyellow5" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+            </div>
+           </div>
+     
+            <div class="criterias">
+                <label id="dialogue-title" for="dialogue">Dialogue</label>
+                <div class="dialogue-stars">
+                    <img id="dialoguestar1" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                    <img id="dialoguestar2" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 1;">
+                    <img id="dialoguestar3" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 1;">
+                    <img id="dialoguestar4" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 1;">
+                    <img id="dialoguestar5" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 1;">
+                </div>
+                <div class="dialogue-yellow-stars">
+                    <img onmouseenter="StarsHover(0,dialogueRating)" id="dialogueyellow1" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                    <img onmouseenter="StarsHover(1,dialogueRating)" id="dialogueyellow2" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 0;">
+                    <img onmouseenter="StarsHover(2,dialogueRating)" id="dialogueyellow3" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 0;">
+                    <img onmouseenter="StarsHover(3,dialogueRating)" id="dialogueyellow4" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 0;">
+                    <img onmouseenter="StarsHover(4,dialogueRating)" id="dialogueyellow5" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 0;">
+                </div>
+       
+           </div>
+           
+           <div class="criterias">
+            <label id="visuals-title" for="visuals">visuals</label>
+            <div class="visuals-stars">
+                <img id="visualsstar1" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                <img id="visualsstar2" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                <img id="visualsstar3" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                <img id="visualsstar4" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+                <img id="visualsstar5" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="" style="opacity: 0;">
+            </div>
+            <div class="story-yellow-stars">
+                <img onmouseenter="StarsHover(0,visualsRating)" id="visualsyellow1" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                <img onmouseenter="StarsHover(1,visualsRating)" id="visualsyellow2" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                <img onmouseenter="StarsHover(2,visualsRating)" id="visualsyellow3" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                <img onmouseenter="StarsHover(3,visualsRating)" id="visualsyellow4" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+                <img onmouseenter="StarsHover(4,visualsRating)" id="visualsyellow5" src="./MYovies_files/yellow-star.svg" alt="" style="opacity: 1;">
+            </div>
+           </div>
+           
+           <div class="criterias">
+            <label id="execution-title" for="execution">execution</label>
+            <div class="execution-stars">
+                <img id="executionstar1" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="">
+                <img id="executionstar2" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="">
+                <img id="executionstar3" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="">
+                <img id="executionstar4" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="">
+                <img id="executionstar5" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="">
+            </div>
+            <div class="execution-yellow-stars">
+                <img onmouseenter="StarsHover(0,executionRating)" id="executionyellow1" src="./MYovies_files/yellow-star.svg" alt="">
+                <img onmouseenter="StarsHover(1,executionRating)" id="executionyellow2" src="./MYovies_files/yellow-star.svg" alt="">
+                <img onmouseenter="StarsHover(2,executionRating)" id="executionyellow3" src="./MYovies_files/yellow-star.svg" alt="">
+                <img onmouseenter="StarsHover(3,executionRating)" id="executionyellow4" src="./MYovies_files/yellow-star.svg" alt="">
+                <img onmouseenter="StarsHover(4,executionRating)" id="executionyellow5" src="./MYovies_files/yellow-star.svg" alt="">
+            </div>
+         </div>
+           
+           <div class="criterias">
+            <label id="characters-title" for="characters">Characters</label>
+            <div class="characters-stars">
+                <img id="charactersstar1" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="">
+                <img id="charactersstar2" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="">
+                <img id="charactersstar3" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="">
+                <img id="charactersstar4" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="">
+                <img id="charactersstar5" src="./MYovies_files/3643731_bookmark_favorite_rate_rating_star_icon.svg" alt="">
+            </div>
+            <div class="characters-yellow-stars">
+                <img onmouseenter="StarsHover(0,charactersRating)" id="charactersyellow1" src="./MYovies_files/yellow-star.svg" alt="">
+                <img onmouseenter="StarsHover(1,charactersRating)" id="charactersyellow2" src="./MYovies_files/yellow-star.svg" alt="">
+                <img onmouseenter="StarsHover(2,charactersRating)" id="charactersyellow3" src="./MYovies_files/yellow-star.svg" alt="">
+                <img onmouseenter="StarsHover(3,charactersRating)" id="charactersyellow4" src="./MYovies_files/yellow-star.svg" alt="">
+                <img onmouseenter="StarsHover(4,charactersRating)" id="charactersyellow5" src="./MYovies_files/yellow-star.svg" alt="">
+            </div>
+            
+           </div>
+   
+           </div>
+
+</div>
+  </div>
+      <!-- <script src="/api.js"></script>  -->
+      <script src="./MYovies_files/script.js" defer=""></script> 
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>
