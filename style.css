@@ -186,6 +186,7 @@ header{
     transition: 200ms;
 }
 #search-input{
+    transform: translateY(100px);
     font-family: 'Josefin Sans', sans-serif;
     text-align: center;
     width:450px;
@@ -197,9 +198,11 @@ header{
     outline: none;
     transition: 200ms;
 }
-#search-input:active{
-    transform: scale();
-}
+::placeholder { 
+    color: orangered;
+    opacity: 1;
+  }
+
 #search:active{
     border-bottom: orangered solid 2px;
 }
@@ -695,6 +698,8 @@ header{
     flex-direction: column;
 }
 .search-result{
+    border-radius: 40px;
+    position: absolute;
     padding: 5px;
     display: flex;
     justify-content: space-around;
@@ -711,13 +716,33 @@ header{
     width: 50px;
 }
 .movieListItem{
-    border: white 2px solid;
+    margin-top: 20px;
+    border-bottom: white 2px solid;
     color: white;
     font-family: 'Josefin Sans', sans-serif;
     width: 400px;
     display: flex;
     justify-content: flex-start;
 }
+.movieListItem:hover{
+    opacity: 0.6;
+    transition: 200ms;
+}
 .movieListItem h1{
     font-size: 30px;
+}
+/* favorites page */
+.wrapper-favorites{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#favorites-title{
+    color: black;
+    font-size: 40px;
+    font-size: 130px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: orangered;
 }

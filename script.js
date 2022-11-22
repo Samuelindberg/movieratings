@@ -225,12 +225,12 @@ async function searchMovie(searchTitle) {
   displayMovieList(data);
   console.log(data);
 }
-// async function searchPoster(posterId) {
-//   const poster_URL = `https://image.tmdb.org/t/p/original/${posterID}`;
-//   const response = await fetch(poster_URL);
-//   const data = await response.json();
-//   return data;
-// }
+async function castMovie(movie_id) {
+  const cast_URL = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=1deb0326fc3b1f89371e34530d9740a3`;
+  const response = await fetch(cast_URL);
+  const data = await response.json();
+  return data;
+}
 function submitSearch() {
   console.log(inputSearch.value);
   searchMovie(inputSearch.value);
@@ -249,21 +249,26 @@ function test() {
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
 
-  for (let idx = 0; idx < 5; idx++) {
+  for (let idx = 0; idx < 4; idx++) {
     console.log(movies);
+    // console.log(castMovie(movies.results[idx].id).cast.name);
     let movieListItem = document.createElement("div");
+    movieListItem.dataset.id = movies.results[idx].id;
     movieListItem.className = "movieListItem";
-
     movieListItem.innerHTML = `
+
             <div class = "search-item-thumbnail">
             <img src = https://image.tmdb.org/t/p/original/${movies.results[idx].poster_path}>
         </div>
     <div class="search-info">
     
         <h1 class="search-title">${movies.results[idx].title}</h1>
-        <p class="search-actors">Actors: </p>
+        <p class="search-actors">Actors:  </p>
         <p class="search-release">release year:${movies.results[idx].release_date}</p>
     </div>`;
     searchlist.appendChild(movieListItem);
   }
 }
+const moviePage = function (id) {
+  alert("funkar" + id);
+};
