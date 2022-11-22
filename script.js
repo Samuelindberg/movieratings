@@ -1,3 +1,5 @@
+let path = window.location.pathname;
+let page = path.split("/").pop();
 const hamburgerLinks = document.getElementById("hamburger-links");
 hamburgerIconContainer = {
   bar1: document.getElementById("bar1"),
@@ -16,16 +18,14 @@ const yourselfMovies = [
 ];
 let movieNumber = 0;
 let movieRateText = "rate " + yourselfMovies[movieNumber] + " yourself";
-let rate = "rate";
-let inputSearch = document.getElementById("search-input");
-let labelSearch = document.getElementById("search-label");
-let searchlist = document.getElementById("result-container");
-const viewportHeight = document.documentElement.clientHeight;
-const viewportWidth = document.documentElement.clientWidth;
-
-let path = window.location.pathname;
-let page = path.split("/").pop();
-
+const rate = "rate";
+const inputSearch = document.getElementById("search-input");
+constlabelSearch = document.getElementById("search-label");
+const searchlist = document.getElementById("result-container");
+const randomTitle = document.getElementById("random-movie-title");
+const randomContainer = document.querySelector(".random-movie-container");
+const randomImgContainer = document.getElementById("random-img-container");
+const randomDesc = document.getElementById("random-desc");
 const actingRating = {
   displayStars: [
     document.getElementById("actingstar1"),
@@ -130,23 +130,22 @@ const visualsRating = {
 };
 
 if (page == "index.html") {
-  rateHover.addEventListener("mouseover", () => {
-    rateHover.style.color = "#FE4500";
-    // if(movieNumber<yourselfMovies){
-    if (movieNumber == 0) {
-      rateHover.style.display = "block";
-      rateHover.innerText = "like " + yourselfMovies[movieNumber];
-    } else {
-      rateHover.innerText = "Even " + yourselfMovies[2];
+  //   rateHover.addEventListener("mouseover", () => {
+  //     rateHover.style.color = "#FE4500";
+  //     if (movieNumber == 0) {
+  //       rateHover.style.display = "block";
+  //       rateHover.innerText = "like " + yourselfMovies[movieNumber];
+  //     } else {
+  //       rateHover.innerText = "Even " + yourselfMovies[2];
 
-      rateHover.innerText = "or " + yourselfMovies[movieNumber];
-    }
-    if (movieNumber >= yourselfMovies.length) {
-      movieNumber--;
-    }
-    console.log(movieNumber);
-    movieNumber++;
-  });
+  //       rateHover.innerText = "or " + yourselfMovies[movieNumber];
+  //     }
+  //     if (movieNumber >= yourselfMovies.length) {
+  //       movieNumber--;
+  //     }
+  //     console.log(movieNumber);
+  //     movieNumber++;
+  //   });
   rateHover.addEventListener("click", () => {
     rateHover.innerText = "or " + yourselfMovies[movieNumber];
     movieNumber++;
@@ -240,7 +239,9 @@ function findMovies() {
   let searchTerm = inputSearch.value.trim();
   if (searchTerm.length > 0) {
     searchMovie(searchTerm);
+    searchlist.style.display = "flex";
   } else {
+    searchlist.style.display = "none";
   }
 }
 function test() {
@@ -248,10 +249,8 @@ function test() {
 }
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
-
   for (let idx = 0; idx < 4; idx++) {
     console.log(movies);
-    // console.log(castMovie(movies.results[idx].id).cast.name);
     let movieListItem = document.createElement("div");
     movieListItem.dataset.id = movies.results[idx].id;
     movieListItem.className = "movieListItem";
@@ -269,6 +268,26 @@ function displayMovieList(movies) {
     searchlist.appendChild(movieListItem);
   }
 }
-const moviePage = function (id) {
-  alert("funkar" + id);
-};
+// random movie section
+
+async function randomMovieApi(id) {
+  const movie_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
+  const response = await fetch(movie_URL);
+  const data = await response.json();
+  console.log(data.success);
+  randomMovie(data);
+}
+
+function generateMovie() {
+  const movieID = Math.floor(Math.random() * 2000) + 500;
+  randomMovieApi(movieID);
+}
+function randomMovie(movie) {
+  console.log(movie);
+  if (movie.adult == true || (movie.adult == false && movie.poster_path)) {
+    randomTitle.innerText = movie.title;
+    randomImgContainer.innerHTML = `<img id="random-img" src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt=""></img>`;
+    randomDesc.style.display = "block";
+  } else {
+  }
+}

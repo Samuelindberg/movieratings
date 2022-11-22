@@ -9,10 +9,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Josefin+Sans:ital,wght@0,100;0,400;1,200;1,500&family=Manrope:wght@600&family=Red+Hat+Display:wght@700&display=swap" rel="stylesheet"> 
    
-    <title>Document</title>
+    <title>MyOVIES</title>
 
 </head>
-<body>
+<header>
+    <div id="hamburger-menu">
+        <div id="hamburger-links">
+            <a href="index.html" class="menu-items" id="home">Home</a>
+            <a href="" class="menu-items" id="watched">Watched movies</a>
+            <a href="favorites.html" class="menu-items" id="goat">Your favorites</a>
+            <a href="" class="menu-items" id="favoritegenre">Favorite Genres</a>
+          </div>
+        <div onclick="menuOpen()" id="hamburger-icon">
+            <div id="bar1" class="hamburger-bar"></div>
+            <div id="bar2" class="hamburger-bar"></div>
+            <div id="bar3" class="hamburger-bar"></div>
+        </div>
+        </div>
+        <div class="logo">
+            <h1 id="m">M</h1>
+            <h1 id="y">y</h1>
+            <h1 id="logo">OVIES</h1>
+        </div>
+     <img src="/img/search.svg" alt="" id="search-icon">
     
+    </div>
+  </header>
+<body>
+    <div class="random-wrapper">
+        <h1 id="random-title">Find a random movie</h1>
+        <div class="random-movie-container">
+            <h1 id="random-movie-title"></h1>
+            <div id="random-content">
+                <div id="random-img-container">
+            </div>
+            <p id="random-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nam dolores dignissimos ratione similique nisi magnam placeat laboriosam et atque.sit amet consectetur adipisicing elit. Dolorem nam</p> 
+            </div>
+        </div>
+        <button onclick="generateMovie()" id="generate">Generate!</button>
+    </div>
+
+
+    <script src="/script.js"></script>
 </body>
 </html>
