@@ -703,9 +703,21 @@ header{
     background-color: blue;
 
 }
-.search-img{
-    width: 40px;
+.search-info{
+    padding: 5px;
+
 }
-.search-img img{
+.search-item-thumbnail img{
     width: 50px;
+}
+.movieListItem{
+    border: white 2px solid;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    width: 400px;
+    display: flex;
+    justify-content: flex-start;
+}
+.movieListItem h1{
+    font-size: 30px;
 }
