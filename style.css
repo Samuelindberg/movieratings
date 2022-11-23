@@ -497,16 +497,17 @@ header{
  /* search page */
  .wrapper-search{
     height: 100vh;
-    padding-top: 10vh;
+    padding-top: 15vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     perspective: 10px;
-    gap: 50px;
+    gap: 30px;
+    overflow-x: hidden;
  }
  #wrapper-movie{
-
+    
     display: flex;
     flex-direction: column;
  }
@@ -519,31 +520,37 @@ header{
  }
  #search-title{
     font-size: 130px;
-    font-family: 'Josefin Sans', sans-serif;
+
     color: #F7D21B;
     text-align: end;
-     width:700px;
+     width:900px;
  }
  #search-desc-container{
     width: 40%;
-    height: 100vh;
+    height: 70vh;
     background-color: white;
     display: flex;
     align-items: flex-end;
     flex-direction: column;
+    justify-content: space-between;
     position: relative;
+    font-family: 'Josefin Sans', sans-serif;
+    gap: 60px;
 
  }
  #poster img{
-    width: 600px;
+    width: 500px;
     /* background-attachment: fixed; */
  }
  #search-desc{
     text-align: end;
     width: 100%;
     font-size: 50px;
-    font-family: 'Josefin Sans', sans-serif;
     font-weight: 200;
+ }
+ #releasedate{
+    color: #FF8D22;
+    font-size: 40px;
  }
 /* rating section */
 #rating-background{

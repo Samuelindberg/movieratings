@@ -244,16 +244,6 @@ function findMovies() {
     searchlist.style.display = "none";
   }
 }
-async function descAPI(title) {
-  console.log(title);
-  let dataTitle_raw = title;
-  let dataTitle = dataTitle_raw.replace(" ", "_");
-  const movie_URL = `https://omdbapi.com/?t=${title_url}&apikey=fc1fef96`;
-  const response = await fetch(movie_URL);
-  const data = await response.json();
-  console.log(data.Plot);
-  searchDesc.innerText = data.Plot;
-}
 
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
@@ -284,7 +274,15 @@ function displayMovieList(movies) {
 }
 
 // random movie section
-
+async function descAPI(title) {
+  console.log(title);
+  const dataTitle_raw = title;
+  const dataTitle = dataTitle_raw.replace(" ", "_");
+  const movie_URL = `https://omdbapi.com/?t=${dataTitle}&apikey=fc1fef96`;
+  const response = await fetch(movie_URL);
+  const data = await response.json();
+  console.log(data.plot);
+}
 function movieDetails() {
   movies.results[idx];
 }
@@ -294,6 +292,7 @@ async function randomMovieApi(id) {
   const data = await response.json();
   // console.log(data.success);
   randomMovie(data);
+  descAPI(data.title);
 }
 
 function generateMovie() {
