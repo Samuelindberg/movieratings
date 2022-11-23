@@ -534,14 +534,9 @@ header{
     position: relative;
 
  }
- #poster{
-  
-    background-image: url("/img/kill-bill-poster.jpeg");
+ #poster img{
+    width: 450px;
     /* background-attachment: fixed; */
-   background-repeat: no-repeat;
-   background-size: contain;
-    height: 80%;
-    width: 38%;
  }
  #search-desc{
     text-align: end;

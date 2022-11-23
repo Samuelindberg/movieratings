@@ -16,6 +16,7 @@ const yourselfMovies = [
   "Kill Bill Vol.II",
   "Big Daddy",
 ];
+const test = document.getElementById("search-desc");
 let movieNumber = 0;
 let movieRateText = "rate " + yourselfMovies[movieNumber] + " yourself";
 const rate = "rate";
@@ -27,6 +28,7 @@ const randomTitle = document.getElementById("random-movie-title");
 const randomContainer = document.querySelector(".random-movie-container");
 const randomImgContainer = document.getElementById("random-img-container");
 const randomDesc = document.getElementById("random-desc");
+let searchResultPage = false;
 const actingRating = {
   displayStars: [
     document.getElementById("actingstar1"),
@@ -130,9 +132,11 @@ const visualsRating = {
   rating: 0,
 };
 //search page
-const searchTitle = document.getElementById("search-title");
-
-if (page == "index.html") {
+let movieTitle = "";
+let releaseDate = "";
+let movieId = "";
+let moviePoster = "";
+if (page === "index.html") {
   //   rateHover.addEventListener("mouseover", () => {
   //     rateHover.style.color = "#FE4500";
   //     if (movieNumber == 0) {
@@ -224,10 +228,9 @@ async function searchMovie(searchTitle) {
   const movie_URL = ` https://api.themoviedb.org/3/search/movie?api_key=1deb0326fc3b1f89371e34530d9740a3&query= ${searchTitle}`;
   const response = await fetch(movie_URL);
   const data = await response.json();
-
   displayMovieList(data);
-  console.log(data);
 }
+
 // async function castMovie(movie_id) {
 //   console.log(movie_id);
 //   const cast_URL = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=1deb0326fc3b1f89371e34530d9740a3`;
@@ -256,12 +259,7 @@ function findMovies() {
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
   for (let idx = 0; idx < 4; idx++) {
-    // console.log(movies);
     let movieListItem = document.createElement("div");
-    // movieListItem.dataset.id = movies.results[idx].id;
-    // console.log(movieListItem);
-    // const actors = castMovie(movies.results[idx].id);
-    // console.log(actors);
     movieListItem.className = "movieListItem";
     movieListItem.innerHTML = `
             <div class = "search-item-thumbnail">
@@ -273,19 +271,17 @@ function displayMovieList(movies) {
         <p class="search-actors"> Actors:  </p>
         <p class="search-release">release year:${movies.results[idx].release_date}</p>
     </div>`;
-    // console.log(movies.results[idx].id);
     searchlist.appendChild(movieListItem);
     movieListItem.addEventListener("click", function () {
-      // console.log(movies.results[idx]);
+      let movieTitle = movies.results[idx].title;
+      let releaseDate = movies.results[idx].release_date;
+      let movieId = movies.results[idx].id;
+      let moviePoster = `<img src = https://image.tmdb.org/t/p/original/${movies.results[idx].poster_path}>`;
+      localStorage.setItem("movieid", movieId);
       window.location.href = "search.html";
-      const movieTitle = movies.results[idx].title;
-      alert(movieTitle);
-      Searchpage(movie_id);
-      searchTitle.innerText = movies.results[idx].title;
     });
   }
 }
-function Searchpage(movie_id) {}
 
 // random movie section
 
