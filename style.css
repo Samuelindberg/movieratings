@@ -142,10 +142,9 @@ header{
 }
 /* intro page */
 #intro-page{
-
+    padding-top: 350px;;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items:center;
     height: 100vh;
     width: 100vw;
@@ -160,6 +159,7 @@ header{
     text-align: center;
     font-size: 80px;
     font-family: 'Josefin Sans', sans-serif;
+    margin-bottom: 20px;
 }
 #yourself{
     opacity: 0;
@@ -194,7 +194,7 @@ header{
     border: none;
     color: rgb(255, 56, 56);
     outline: none;
-    transition: 200ms;
+    transition: 400ms;
 }
 ::placeholder { 
     color: orangered;
@@ -271,7 +271,7 @@ header{
   background-repeat: no-repeat;
   background-size: cover;
 }
-#random-movie-title{
+#random-movie-title-intro{
     font-family: 'Manrope', sans-serif;
     font-size: 150px;
     max-width: 90vw;
@@ -700,7 +700,6 @@ header{
 
 /* sökruta */
 #result-container{
-    transform: translateY(100px);
     display: flex;
     flex-direction: column;
 }
@@ -709,9 +708,8 @@ header{
     display: flex;
     justify-content: space-around;
     width: 400px;
-    height:200px;
+    max-height:200px;
     background-color: blue;
-
 }
 .search-info{
     padding: 5px;
@@ -758,6 +756,8 @@ header{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 20px;
 }
 .random-movie-container{
     width: 800px;
@@ -770,7 +770,7 @@ header{
 #random-title{
     margin-top: 100px;
     font-size: 90px;
-    font-family: 'Josefin Sans', sans-serif;
+    
     color: orangered;
 }
 #random-movie-title{
@@ -789,6 +789,10 @@ header{
     color: white;
     font-size: 25px;
     font-family: 'Josefin Sans', sans-serif;
+    transition: 300ms;
+}
+#generate:hover{
+    background-color: #FF8D22;
 }
 
 #random-content{

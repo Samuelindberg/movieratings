@@ -20,8 +20,9 @@ let movieNumber = 0;
 let movieRateText = "rate " + yourselfMovies[movieNumber] + " yourself";
 const rate = "rate";
 const inputSearch = document.getElementById("search-input");
-constlabelSearch = document.getElementById("search-label");
+const labelSearch = document.getElementById("search-label");
 const searchlist = document.getElementById("result-container");
+let movieClickID = 0;
 const randomTitle = document.getElementById("random-movie-title");
 const randomContainer = document.querySelector(".random-movie-container");
 const randomImgContainer = document.getElementById("random-img-container");
@@ -153,7 +154,6 @@ if (page == "index.html") {
 
   inputSearch.addEventListener("click", () => {
     inputSearch.style.transform = "scale(1.1)";
-    labelSearch.style.transform = "scale(0.9)";
   });
 }
 
@@ -218,18 +218,21 @@ document.querySelectorAll(".acting-yellow-stars *").forEach((star) =>
 
 // api
 async function searchMovie(searchTitle) {
+  // movie API
   const movie_URL = ` https://api.themoviedb.org/3/search/movie?api_key=1deb0326fc3b1f89371e34530d9740a3&query= ${searchTitle}`;
   const response = await fetch(movie_URL);
   const data = await response.json();
+
   displayMovieList(data);
   console.log(data);
 }
-async function castMovie(movie_id) {
-  const cast_URL = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=1deb0326fc3b1f89371e34530d9740a3`;
-  const response = await fetch(cast_URL);
-  const data = await response.json();
-  return data;
-}
+// async function castMovie(movie_id) {
+//   console.log(movie_id);
+//   const cast_URL = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=1deb0326fc3b1f89371e34530d9740a3`;
+//   const castResponse = await fetch(cast_URL);
+//   const castData = await castResponse.json();
+//   console.log(castData);
+// }
 function submitSearch() {
   console.log(inputSearch.value);
   searchMovie(inputSearch.value);
@@ -244,37 +247,48 @@ function findMovies() {
     searchlist.style.display = "none";
   }
 }
-function test() {
-  console.log("test");
-}
+inputSearch.addEventListener("click", () => {
+  inputSearch.style.transform = "translateY(0)";
+});
+
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
   for (let idx = 0; idx < 4; idx++) {
     console.log(movies);
     let movieListItem = document.createElement("div");
     movieListItem.dataset.id = movies.results[idx].id;
+    // console.log(movieListItem);
+    // const actors = castMovie(movies.results[idx].id);
+    // console.log(actors);
     movieListItem.className = "movieListItem";
     movieListItem.innerHTML = `
-
             <div class = "search-item-thumbnail">
             <img src = https://image.tmdb.org/t/p/original/${movies.results[idx].poster_path}>
         </div>
     <div class="search-info">
     
         <h1 class="search-title">${movies.results[idx].title}</h1>
-        <p class="search-actors">Actors:  </p>
+        <p class="search-actors"> Actors:  </p>
         <p class="search-release">release year:${movies.results[idx].release_date}</p>
     </div>`;
     searchlist.appendChild(movieListItem);
+    // movieListItem.forEach((movie) => {
+    //   movie.addEventListener("click", async () => {
+    //     movieDetails(movie.id);
+    //   });
+    // });
   }
 }
 // random movie section
 
+function movieDetails(movie_id) {
+  console.log(movie_id);
+}
 async function randomMovieApi(id) {
   const movie_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
   const response = await fetch(movie_URL);
   const data = await response.json();
-  console.log(data.success);
+  // console.log(data.success);
   randomMovie(data);
 }
 
@@ -289,5 +303,6 @@ function randomMovie(movie) {
     randomImgContainer.innerHTML = `<img id="random-img" src="https://image.tmdb.org/t/p/original/${movie.poster_path}" alt=""></img>`;
     randomDesc.style.display = "block";
   } else {
+    generateMovie(movie);
   }
 }
