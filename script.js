@@ -129,7 +129,7 @@ const visualsRating = {
   ],
   rating: 0,
 };
-
+const searchTitle = element;
 if (page == "index.html") {
   //   rateHover.addEventListener("mouseover", () => {
   //     rateHover.style.color = "#FE4500";
@@ -254,9 +254,9 @@ inputSearch.addEventListener("click", () => {
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
   for (let idx = 0; idx < 4; idx++) {
-    console.log(movies);
+    // console.log(movies);
     let movieListItem = document.createElement("div");
-    movieListItem.dataset.id = movies.results[idx].id;
+    // movieListItem.dataset.id = movies.results[idx].id;
     // console.log(movieListItem);
     // const actors = castMovie(movies.results[idx].id);
     // console.log(actors);
@@ -271,18 +271,24 @@ function displayMovieList(movies) {
         <p class="search-actors"> Actors:  </p>
         <p class="search-release">release year:${movies.results[idx].release_date}</p>
     </div>`;
+    // console.log(movies.results[idx].id);
     searchlist.appendChild(movieListItem);
     // movieListItem.forEach((movie) => {
-    //   movie.addEventListener("click", async () => {
-    //     movieDetails(movie.id);
+    //   movie.results[idx].addEventListener("click", () => {
+    //     movieDetails(movie.results[idx].id);
     //   });
     // });
+    movieListItem.addEventListener("click", () => {
+      // console.log(movies.results[idx]);
+      searchMovie(movies.results[idx].id);
+    });
   }
 }
+
 // random movie section
 
-function movieDetails(movie_id) {
-  console.log(movie_id);
+function movieDetails() {
+  movies.results[idx];
 }
 async function randomMovieApi(id) {
   const movie_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
