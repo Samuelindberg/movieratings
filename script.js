@@ -129,7 +129,9 @@ const visualsRating = {
   ],
   rating: 0,
 };
-const searchTitle = element;
+//search page
+const searchTitle = document.getElementById("search-title");
+
 if (page == "index.html") {
   //   rateHover.addEventListener("mouseover", () => {
   //     rateHover.style.color = "#FE4500";
@@ -247,9 +249,9 @@ function findMovies() {
     searchlist.style.display = "none";
   }
 }
-inputSearch.addEventListener("click", () => {
-  inputSearch.style.transform = "translateY(0)";
-});
+// inputSearch.addEventListener("click", () => {
+//   inputSearch.style.transform = "translateY(0)";
+// });
 
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
@@ -273,17 +275,17 @@ function displayMovieList(movies) {
     </div>`;
     // console.log(movies.results[idx].id);
     searchlist.appendChild(movieListItem);
-    // movieListItem.forEach((movie) => {
-    //   movie.results[idx].addEventListener("click", () => {
-    //     movieDetails(movie.results[idx].id);
-    //   });
-    // });
-    movieListItem.addEventListener("click", () => {
+    movieListItem.addEventListener("click", function () {
       // console.log(movies.results[idx]);
-      searchMovie(movies.results[idx].id);
+      window.location.href = "search.html";
+      const movieTitle = movies.results[idx].title;
+      alert(movieTitle);
+      Searchpage(movie_id);
+      searchTitle.innerText = movies.results[idx].title;
     });
   }
 }
+function Searchpage(movie_id) {}
 
 // random movie section
 
