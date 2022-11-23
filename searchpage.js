@@ -1,18 +1,26 @@
 let searchId = localStorage.getItem("movieId");
+let searchDesc = document.getElementById("search-desc");
 let title = document.getElementById("search-title");
 let poster = document.getElementById("poster");
 console.log(searchId);
-async function SearchApi(id) {
+
+async function searchAPI(id) {
   const movie_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
   const response = await fetch(movie_URL);
   const data = await response.json();
-  AddInfo(data);
+  title.innerText = data.title;
+  poster.innerHTML = `<img src = https://image.tmdb.org/t/p/original/${data.poster_path}>`;
+  let dataTitle_raw = data.title;
+  let dataTitle = dataTitle_raw.replace(" ", "_");
+  descAPI(dataTitle);
 }
-SearchApi(searchId);
 
-function AddInfo(movie) {
-  console.log(movie);
-  title.innerText = movie.title;
-  poster.innerHTML = `<img src = https://image.tmdb.org/t/p/original/${movie.poster_path}>`;
+async function descAPI(title) {
+  console.log(title);
+  const movie_URL = `https://omdbapi.com/?t=${title}&apikey=fc1fef96`;
+  const response = await fetch(movie_URL);
+  const data = await response.json();
+  console.log(data.Plot);
+  searchDesc.innerText = data.Plot;
 }
-console.log("test");
+searchAPI(searchId);

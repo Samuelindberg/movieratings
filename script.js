@@ -230,14 +230,6 @@ async function searchMovie(searchTitle) {
   const data = await response.json();
   displayMovieList(data);
 }
-
-// async function castMovie(movie_id) {
-//   console.log(movie_id);
-//   const cast_URL = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=1deb0326fc3b1f89371e34530d9740a3`;
-//   const castResponse = await fetch(cast_URL);
-//   const castData = await castResponse.json();
-//   console.log(castData);
-// }
 function submitSearch() {
   console.log(inputSearch.value);
   searchMovie(inputSearch.value);
@@ -252,9 +244,16 @@ function findMovies() {
     searchlist.style.display = "none";
   }
 }
-// inputSearch.addEventListener("click", () => {
-//   inputSearch.style.transform = "translateY(0)";
-// });
+async function descAPI(title) {
+  console.log(title);
+  let dataTitle_raw = title;
+  let dataTitle = dataTitle_raw.replace(" ", "_");
+  const movie_URL = `https://omdbapi.com/?t=${title_url}&apikey=fc1fef96`;
+  const response = await fetch(movie_URL);
+  const data = await response.json();
+  console.log(data.Plot);
+  searchDesc.innerText = data.Plot;
+}
 
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
@@ -277,7 +276,8 @@ function displayMovieList(movies) {
       let releaseDate = movies.results[idx].release_date;
       let movieId = movies.results[idx].id;
       let moviePoster = `<img src = https://image.tmdb.org/t/p/original/${movies.results[idx].poster_path}>`;
-      localStorage.setItem("movieid", movieId);
+      localStorage.setItem("movieId", movieId);
+      localStorage.setItem("movieTitle", movieId);
       window.location.href = "search.html";
     });
   }
