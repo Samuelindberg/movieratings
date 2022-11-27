@@ -201,12 +201,6 @@ function StarsHover(n, cat) {
     cat.displayStars[5].style.opacity = 0;
   }
 }
-// function leaveStars(cat){
-//     for(i=0; i>=4;i++){
-//         cat.glowingStars[i].style.opacity=0;
-//         cat.displayStars[i].style.opacity=1;
-//     }
-// }
 
 document.querySelectorAll(".acting-yellow-stars *").forEach((star) =>
   star.addEventListener("click", (event) => {
@@ -221,6 +215,12 @@ document.querySelectorAll(".acting-yellow-stars *").forEach((star) =>
     }
   })
 );
+
+function checkRating(category) {
+  for (i = 0; i < 5; i++) {
+    category.glowingStars[i];
+  }
+}
 
 // api
 async function searchMovie(searchTitle) {

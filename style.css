@@ -2,6 +2,9 @@
     padding: 0;
     margin: 0;
 }
+html{
+    scroll-behavior: smooth;
+}
 .wrapper{
     z-index: -2;
     background-color: #ff8d22;

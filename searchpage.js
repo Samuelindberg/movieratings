@@ -10,7 +10,7 @@ async function searchAPI(id) {
   console.log(data);
   title.innerText = data.title;
   poster.innerHTML = `<img src = https://image.tmdb.org/t/p/original/${data.poster_path}>`;
-  document.getElementById("releasedate").innerText += data.release_date;
+  document.getElementById("releasedate").innerText = data.release_date;
   let dataTitle_raw = data.title;
   let dataTitle = dataTitle_raw.replace(" ", "_");
   descAPI(dataTitle);
