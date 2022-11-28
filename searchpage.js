@@ -1,8 +1,28 @@
 let searchId = localStorage.getItem("movieId");
+let movieRating = {};
 let searchDesc = document.getElementById("search-desc");
 let title = document.getElementById("search-title");
 let poster = document.getElementById("poster");
-// let releaseDate = document.getElementById("releasedate");
+let acting = {
+  starsDisplayed: 0,
+  checked: [
+    document.getElementById("acting-ticked1"),
+    document.getElementById("acting-ticked2"),
+    document.getElementById("acting-ticked3"),
+    document.getElementById("acting-ticked4"),
+    document.getElementById("acting-ticked5"),
+  ],
+};
+let dialogue = {
+  starsDisplayed: 0,
+  checked: [
+    document.getElementById("dialogue-ticked1"),
+    document.getElementById("dialogue-ticked2"),
+    document.getElementById("dialogue-ticked3"),
+    document.getElementById("dialogue-ticked4"),
+    document.getElementById("dialogue-ticked5"),
+  ],
+};
 async function searchAPI(id) {
   const movie_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
   const response = await fetch(movie_URL);
@@ -24,3 +44,15 @@ async function descAPI(title) {
   searchDesc.innerText = data.Plot;
 }
 searchAPI(searchId);
+
+function submitRating(criteria, rating) {
+  for (i = 0; i < 5; i++) {
+    if (i <= rating - 1) {
+      criteria.checked[i].style.opacity = 1;
+    } else {
+      criteria.checked[i].style.opacity = 0;
+    }
+  }
+  // localStorage.setItem(searchId + criteria, rating);
+  // console.log(localStorage.getItem(searchId + "acting"));
+}
