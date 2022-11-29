@@ -1,8 +1,16 @@
 let searchId = localStorage.getItem("movieId");
-let movieRating = {};
+let movieRating = {
+  acting: null,
+  dialogue: null,
+  visuals: null,
+  story: null,
+  characters: null,
+  execution: null,
+};
 let searchDesc = document.getElementById("search-desc");
 let title = document.getElementById("search-title");
 let poster = document.getElementById("poster");
+let ratingSubmit = document.getElementById("submit-rating");
 let acting = {
   starsDisplayed: 0,
   checked: [
@@ -63,6 +71,7 @@ let execution = {
     document.getElementById("execution-ticked5"),
   ],
 };
+let ratingSumText = document.getElementById("total-rating-text");
 async function searchAPI(id) {
   const movie_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
   const response = await fetch(movie_URL);
@@ -109,8 +118,15 @@ function checkIfRated() {
         execution.checked[i].style.opacity = 1;
       }
     }
+    ratingSumText.innerText = "RATING: " + movieRating.totalrating;
   }
 }
+
+ratingSubmit.addEventListener("click", () => {
+  if (movieRating.every((criteria) => criteria === null)) {
+    console.log("funkar");
+  }
+});
 
 checkIfRated();
 function submitRating(criteria, rating, criteriaID) {
@@ -141,8 +157,15 @@ function submitRating(criteria, rating, criteriaID) {
       movieRating.execution = rating;
       break;
   }
-  let localMovierating = JSON.stringify(movieRating);
-  localStorage.setItem(searchId, localMovierating);
-  console.log(JSON.parse(localStorage.getItem(searchId)));
-  console.log(searchId);
+  const totalrating =
+    (movieRating.execution +
+      movieRating.acting +
+      movieRating.visuals +
+      movieRating.characters +
+      movieRating.story +
+      movieRating.dialogue) /
+    6;
+  movieRating.totalrating = totalrating.toFixed(1);
+  ratingSumText.innerText = "RATING: " + movieRating.totalrating;
+  localStorage.setItem(searchId, JSON.stringify(movieRating));
 }
