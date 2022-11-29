@@ -33,6 +33,36 @@ let visuals = {
     document.getElementById("visuals-ticked5"),
   ],
 };
+let story = {
+  starsDisplayed: 0,
+  checked: [
+    document.getElementById("story-ticked1"),
+    document.getElementById("story-ticked2"),
+    document.getElementById("story-ticked3"),
+    document.getElementById("story-ticked4"),
+    document.getElementById("story-ticked5"),
+  ],
+};
+let characters = {
+  starsDisplayed: 0,
+  checked: [
+    document.getElementById("characters-ticked1"),
+    document.getElementById("characters-ticked2"),
+    document.getElementById("characters-ticked3"),
+    document.getElementById("characters-ticked4"),
+    document.getElementById("characters-ticked5"),
+  ],
+};
+let execution = {
+  starsDisplayed: 0,
+  checked: [
+    document.getElementById("execution-ticked1"),
+    document.getElementById("execution-ticked2"),
+    document.getElementById("execution-ticked3"),
+    document.getElementById("execution-ticked4"),
+    document.getElementById("execution-ticked5"),
+  ],
+};
 async function searchAPI(id) {
   const movie_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
   const response = await fetch(movie_URL);
@@ -54,7 +84,35 @@ async function descAPI(title) {
   searchDesc.innerText = data.Plot;
 }
 searchAPI(searchId);
+function checkIfRated() {
+  if (localStorage.getItem(searchId) === null) {
+    console.log("movie does not exist");
+  } else {
+    movieRating = JSON.parse(localStorage.getItem(searchId));
+    for (i = 0; i < 5; i++) {
+      if (i <= movieRating.acting - 1) {
+        acting.checked[i].style.opacity = 1;
+      }
+      if (i <= movieRating.dialogue - 1) {
+        dialogue.checked[i].style.opacity = 1;
+      }
+      if (i <= movieRating.visuals - 1) {
+        visuals.checked[i].style.opacity = 1;
+      }
+      if (i <= movieRating.story - 1) {
+        story.checked[i].style.opacity = 1;
+      }
+      if (i <= movieRating.characters - 1) {
+        characters.checked[i].style.opacity = 1;
+      }
+      if (i <= movieRating.execution - 1) {
+        execution.checked[i].style.opacity = 1;
+      }
+    }
+  }
+}
 
+checkIfRated();
 function submitRating(criteria, rating, criteriaID) {
   for (i = 0; i < 5; i++) {
     if (i <= rating - 1) {
@@ -63,21 +121,28 @@ function submitRating(criteria, rating, criteriaID) {
       criteria.checked[i].style.opacity = 0;
     }
   }
-  // if (criteriaID === 0) {
-  //   console.log("acting");
-  // }
   switch (criteriaID) {
     case 0:
       movieRating.acting = rating;
       break;
-
     case 1:
       movieRating.dialogue = rating;
       break;
-
     case 2:
       movieRating.visuals = rating;
       break;
+    case 3:
+      movieRating.story = rating;
+      break;
+    case 4:
+      movieRating.characters = rating;
+      break;
+    case 5:
+      movieRating.execution = rating;
+      break;
   }
-  console.log(movieRating);
+  let localMovierating = JSON.stringify(movieRating);
+  localStorage.setItem(searchId, localMovierating);
+  console.log(JSON.parse(localStorage.getItem(searchId)));
+  console.log(searchId);
 }
