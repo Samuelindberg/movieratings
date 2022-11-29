@@ -41,17 +41,18 @@
                 <h1 id="search-title"></h1>
                 <p id="search-desc"></p>
                 <p id="releasedate">RELEASE DATE: </p>
-
             </div>
             <div id="poster">
             </div>
-            <div>
-            </div>
+
       </div> 
       </div>
       <div id="rating-container">
+       <h1 id="seenit-title">
         SEEN IT? RATE IT!
-        <div class="criteria-boxes"><h1 id="acting-text">ACTING</h1>
+       </h1>
+        <div class="criteria-boxes">
+            <h1 id="acting-text">ACTING</h1>
             <div class="unchecked-stars">
                 <img src="/img/unchecked-star.png" alt="" id="acting-unticked1">
                 <img src="/img/unchecked-star.png" alt="" id="acting-unticked2">
@@ -60,11 +61,11 @@
                 <img src="/img/unchecked-star.png" alt="" id="acting-unticked5">
             </div>
             <div id="acting-checked">
-                <img  onclick="submitRating(acting,1)" src="/img/checked-star.png" alt="" id="acting-ticked1">
-                <img onclick="submitRating(acting,2)" src="/img/checked-star.png" alt="" id="acting-ticked2">
-                <img onclick="submitRating(acting,3)" src="/img/checked-star.png" alt="" id="acting-ticked3">
-                <img onclick="submitRating(acting,4)" src="/img/checked-star.png" alt="" id="acting-ticked4">
-                <img onclick="submitRating(acting,5)" src="/img/checked-star.png" alt="" id="acting-ticked5">
+                <img onclick="submitRating(acting,1,0)" src="/img/checked-star.png" alt="" id="acting-ticked1" class="ticked-stars">
+                <img onclick="submitRating(acting,2,0)" src="/img/checked-star.png" alt="" id="acting-ticked2" class="ticked-stars">
+                <img onclick="submitRating(acting,3,0)" src="/img/checked-star.png" alt="" id="acting-ticked3" class="ticked-stars">
+                <img onclick="submitRating(acting,4,0)" src="/img/checked-star.png" alt="" id="acting-ticked4" class="ticked-stars">
+                <img onclick="submitRating(acting,5,0)" src="/img/checked-star.png" alt="" id="acting-ticked5" class="ticked-stars">
             </div>
      
         </div>
@@ -78,15 +79,32 @@
                 <img src="/img/unchecked-star.png" alt="" id="acting-unticked5">
             </div>
             <div id="dialogue-checked">
-                <img onclick="submitRating(dialogue,1)" src="/img/checked-star.png" alt="" id="dialogue-ticked1">
-                <img onclick="submitRating(dialogue,2)" src="/img/checked-star.png" alt="" id="dialogue-ticked2">
-                <img onclick="submitRating(dialogue,3)" src="/img/checked-star.png" alt="" id="dialogue-ticked3">
-                <img onclick="submitRating(dialogue,4)" src="/img/checked-star.png" alt="" id="dialogue-ticked4">
-                <img onclick="submitRating(dialogue,5)" src="/img/checked-star.png" alt="" id="dialogue-ticked5">
+                <img onclick="submitRating(dialogue,1,1)" src="/img/checked-star.png" alt="" id="dialogue-ticked1" class="ticked-stars">
+                <img onclick="submitRating(dialogue,2,1)" src="/img/checked-star.png" alt="" id="dialogue-ticked2" class="ticked-stars">
+                <img onclick="submitRating(dialogue,3,1)" src="/img/checked-star.png" alt="" id="dialogue-ticked3" class="ticked-stars">
+                <img onclick="submitRating(dialogue,4,1)" src="/img/checked-star.png" alt="" id="dialogue-ticked4" class="ticked-stars">
+                <img onclick="submitRating(dialogue,5,1)" src="/img/checked-star.png" alt="" id="dialogue-ticked5" class="ticked-stars">
             </div>
      
         </div>
-        <div class="criteria-boxes"><h1 id=""></h1></div>
+        <div class="criteria-boxes">
+            <h1 id="visuals-text">VISUALS</h1>
+            <div class="unchecked-stars">
+                <img src="/img/unchecked-star.png" alt="" id="acting-unticked1">
+                <img src="/img/unchecked-star.png" alt="" id="acting-unticked2">
+                <img src="/img/unchecked-star.png" alt="" id="acting-unticked3">
+                <img src="/img/unchecked-star.png" alt="" id="acting-unticked4">
+                <img src="/img/unchecked-star.png" alt="" id="acting-unticked5">
+            </div>
+            <div id="visuals-checked">
+                <img onclick="submitRating(visuals,1,2)" src="/img/checked-star.png" alt="" id="visuals-ticked1" class="ticked-stars">
+                <img onclick="submitRating(visuals,2,2)" src="/img/checked-star.png" alt="" id="visuals-ticked2" class="ticked-stars">
+                <img onclick="submitRating(visuals,3,2)" src="/img/checked-star.png" alt="" id="visuals-ticked3" class="ticked-stars">
+                <img onclick="submitRating(visuals,4,2)" src="/img/checked-star.png" alt="" id="visuals-ticked4" class="ticked-stars">
+                <img onclick="submitRating(visuals,5,2)" src="/img/checked-star.png" alt="" id="visuals-ticked5" class="ticked-stars">
+            </div>
+     
+        </div>
         <div class="criteria-boxes"><h1 id=""></h1></div>
         <div class="criteria-boxes"><h1 id=""></h1></div>
         <div class="criteria-boxes"><h1 id=""></h1></div>

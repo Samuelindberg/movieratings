@@ -23,6 +23,16 @@ let dialogue = {
     document.getElementById("dialogue-ticked5"),
   ],
 };
+let visuals = {
+  starsDisplayed: 0,
+  checked: [
+    document.getElementById("visuals-ticked1"),
+    document.getElementById("visuals-ticked2"),
+    document.getElementById("visuals-ticked3"),
+    document.getElementById("visuals-ticked4"),
+    document.getElementById("visuals-ticked5"),
+  ],
+};
 async function searchAPI(id) {
   const movie_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
   const response = await fetch(movie_URL);
@@ -45,7 +55,7 @@ async function descAPI(title) {
 }
 searchAPI(searchId);
 
-function submitRating(criteria, rating) {
+function submitRating(criteria, rating, criteriaID) {
   for (i = 0; i < 5; i++) {
     if (i <= rating - 1) {
       criteria.checked[i].style.opacity = 1;
@@ -53,6 +63,21 @@ function submitRating(criteria, rating) {
       criteria.checked[i].style.opacity = 0;
     }
   }
-  // localStorage.setItem(searchId + criteria, rating);
-  // console.log(localStorage.getItem(searchId + "acting"));
+  // if (criteriaID === 0) {
+  //   console.log("acting");
+  // }
+  switch (criteriaID) {
+    case 0:
+      movieRating.acting = rating;
+      break;
+
+    case 1:
+      movieRating.dialogue = rating;
+      break;
+
+    case 2:
+      movieRating.visuals = rating;
+      break;
+  }
+  console.log(movieRating);
 }
