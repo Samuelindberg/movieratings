@@ -123,8 +123,11 @@ function checkIfRated() {
 }
 
 ratingSubmit.addEventListener("click", () => {
-  if (movieRating.every((criteria) => criteria === null)) {
-    console.log("funkar");
+  if (!Object.values(movieRating).some((value) => value === null)) {
+    localStorage.setItem(searchId, JSON.stringify(movieRating));
+    alert("saved!");
+  } else {
+    alert("all criterias must be rated!");
   }
 });
 
@@ -167,5 +170,4 @@ function submitRating(criteria, rating, criteriaID) {
     6;
   movieRating.totalrating = totalrating.toFixed(1);
   ratingSumText.innerText = "RATING: " + movieRating.totalrating;
-  localStorage.setItem(searchId, JSON.stringify(movieRating));
 }
