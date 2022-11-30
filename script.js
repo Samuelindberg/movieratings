@@ -34,6 +34,9 @@ let movieTitle = "";
 let releaseDate = "";
 let movieId = "";
 let moviePoster = "";
+//favorites page
+const favoriteList = document.querySelector(".favorite-movies-container");
+
 if (page === "index.html") {
   //   rateHover.addEventListener("mouseover", () => {
   //     rateHover.style.color = "#FE4500";
@@ -164,8 +167,7 @@ function displayMovieList(movies) {
       let releaseDate = movies.results[idx].release_date;
       let movieId = movies.results[idx].id;
       let moviePoster = `<img src = https://image.tmdb.org/t/p/original/${movies.results[idx].poster_path}>`;
-      localStorage.setItem("movieId", movieId);
-      localStorage.setItem("movieTitle", movieId);
+      sessionStorage.setItem("movieId", movieId);
       window.location.href = "search.html";
     });
   }

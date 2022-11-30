@@ -96,7 +96,8 @@ header{
     background-color: #ff8d22;
 }
 #search-icon{
-    opacity: 0;
+    opacity: 1;
+    margin-right: 30px;
     width: 40px;   
 }
 #logo{
@@ -565,7 +566,7 @@ header{
 #rating-container{
     background-color: #ff8d22;
    border: #ff8d22 solid 2px;
-    height: 70vh;
+    height: 80vh;
     width: 80%;
     display: grid;
     grid-template-rows: 0.1fr auto;
@@ -611,7 +612,8 @@ header{
     background-color: transparent;
     border: none;
     font-size: 50px;
-    color: orangered;
+    color: white;
+    margin-bottom: 60px;
 
 }
 

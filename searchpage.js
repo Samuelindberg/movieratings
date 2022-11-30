@@ -1,4 +1,4 @@
-let searchId = localStorage.getItem("movieId");
+let searchId = sessionStorage.getItem("movieId");
 let movieRating = {
   acting: null,
   dialogue: null,
@@ -118,13 +118,12 @@ function checkIfRated() {
         execution.checked[i].style.opacity = 1;
       }
     }
-    ratingSumText.innerText = "RATING: " + movieRating.totalrating;
+    // ratingSumText.innerText = "RATING: " + movieRating.totalrating;
   }
 }
 
 ratingSubmit.addEventListener("click", () => {
   if (!Object.values(movieRating).some((value) => value === null)) {
-    localStorage.setItem(searchId, JSON.stringify(movieRating));
     alert("saved!");
   } else {
     alert("all criterias must be rated!");
@@ -132,6 +131,7 @@ ratingSubmit.addEventListener("click", () => {
 });
 
 checkIfRated();
+
 function submitRating(criteria, rating, criteriaID) {
   for (i = 0; i < 5; i++) {
     if (i <= rating - 1) {
@@ -168,6 +168,7 @@ function submitRating(criteria, rating, criteriaID) {
       movieRating.story +
       movieRating.dialogue) /
     6;
-  movieRating.totalrating = totalrating.toFixed(1);
-  ratingSumText.innerText = "RATING: " + movieRating.totalrating;
+  movieRating.totalrating = totalrating;
+  ratingSumText.innerText = "RATING: " + movieRating.totalrating.toFixed(1);
+  localStorage.setItem(searchId, JSON.stringify(movieRating));
 }
