@@ -43,16 +43,21 @@ async function FavoriteMovies() {
 
 function displayFavorites(movie) {
   console.log(movie);
-  // movieListItem.innerHTML = `
-  // //         <div class = "favorite-poster">
-  // //         <img src = https://image.tmdb.org/t/p/original/${movies.results[idx].poster_path}>
-  // //     </div>
-  // // <div class="search-info">
-
-  // //     <h1 class="search-title">${movies.results[idx].title}</h1>
-  // //     <p class="search-actors"> Actors:  </p>
-  // //     <p class="search-release">release year:${movies.results[idx].release_date}</p>
-  // // </div>`;
+  console.log(movie.overview);
   let FavoriteListItem = document.createElement("div");
+  //   const dataTitle_raw = movie.orignal_title;
+
+  //   console.log(movie.orignal_title);
+  //   const dataTitle = dataTitle_raw.replace(" ", "_");
   FavoriteListItem.className = "FavoriteListItem";
+  FavoriteListItem.innerHTML = `
+           <div class = "favorite-poster">
+           <img src = https://image.tmdb.org/t/p/original/${movie.poster_path}>
+        </div>
+     <div class="search-info">
+    <h1 class="favorites-title">${movie.original_title}</h1>
+    <p class="favorites-desc">${movie.overview}</p>
+    <p class="favorites-desc> test</p>
+     </div>`;
+  moviesContainer.appendChild(FavoriteListItem);
 }
