@@ -11,18 +11,24 @@
 let FavoriteListItem = document.createElement("div");
 FavoriteListItem.className = "FavoriteListItem";
 let obj = {};
-let topRatedArr = [];
+let topRatedArr = [3, 4, 2];
 
 for (let i = 0, len = localStorage.length; i < len; ++i) {
   movie = localStorage.getItem(localStorage.key(i));
-
   const movieId = localStorage.key(i);
   const movieParsed = JSON.parse(movie);
   const movieIdString = movieId.toString();
   obj.movieId = movieParsed;
   allMovies = { movie };
   //   console.log(movieIdString);
-  const parseSingle = JSON.parse(localStorage.getItem(movieId));
-  console.log(movieId);
-  console.log(parseSingle);
+  let parseSingle = JSON.parse(localStorage.getItem(movieId));
+  //   console.log(movieId);
+  //   console.log(parseSingle.totalrating);
+  parseSingle.id = movieId;
+
+  checkRating(parseSingle);
+}
+
+function checkRating(movie) {
+  console.log(movie);
 }
