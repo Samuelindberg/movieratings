@@ -81,12 +81,13 @@ async function searchAPI(id) {
   title.innerText = data.title;
   poster.innerHTML = `<img src = https://image.tmdb.org/t/p/original/${data.poster_path}>`;
   searchGenres.innerHTML =
-    "<span id=genres-span>Genres:</span> " +
+    "Genres: <span id=search-genre-span>" +
     data.genres[0].name +
     ", " +
     data.genres[1].name +
     ", " +
     data.genres[2].name;
+  +"</span>";
   document.getElementById("releasedate").innerHTML =
     "<span id=release-span>Release Date:</span> " +
     data.release_date.substr(0, 4);

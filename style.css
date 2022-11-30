@@ -1,4 +1,5 @@
 *{
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
@@ -523,60 +524,64 @@ header{
    
  }
  #search-title{
-    color: black;
-    
-    font-size: 130px;
-    text-align: end;
-     width:900px;
+    box-sizing: content-box;
+    color: #F7D21B;
+    font-size: 100px;
+    text-align: start;
+     width:700px;
+     border-bottom: 3px dotted white;
  }
  #search-desc-container{
-    width: 40%;
-    height: 70vh;
+    width: 800px;
+    height: 800px;
+    padding: 40px;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
+    background-color: #FF8D22;
     font-family: 'Josefin Sans', sans-serif;
  }
  #poster img{
-    width: 500px;
+    height: 800px;
+    border-radius: 18px;
     /* background-attachment: fixed; */
  }
  #search-desc{
-    padding: 20px 20px;
-    border-top: 2px solid orangered;
-    background-color: #FF8D22;
+    padding: 10px;
     color: white;
-    text-align: end;
+    text-align: start;
     width: 100%;
-    font-size: 50px;
+    font-size: 43px;
     font-weight: 300;
     font-family: 'Josefin Sans', sans-serif;
  }
  #releasedate{
     padding-top: 20px;
-    color:#474746;
+    color: white;
     font-size: 40px;
-    font-weight: 200;
+    font-weight: 300;
  }
  #release-span{
+    color:#F7D21B;
     font-weight: 400;
-    color: #FF8D22;
  }
  #search-desc-container h3{
+    padding: 10px 0;
     font-size: 40px;
-    color:#474746;
-    font-weight: 200;
- }
- #genres-span{
-    color: #FF8D22;
+    color:#F7D21B;
     font-weight: 400;
  }
+#search-genre-span{
+    color: white;
+    font-weight: 300;
+}
  #desc-title{
     padding-top: 20px;
     font-size: 40px;
-    color: #FF8D22;
+    font-weight: 400;
+    color: #F7D21B;
  }
 
 /* rating section */
@@ -699,13 +704,12 @@ header{
     height: 50px;
 }
 .FavoriteListItem{
-    height: 230px;
+    height: 300px;
     display: flex;
     font-family: "josefin Sans";
     background-color: #ff8d22;
     border: white 10px solid;
-    padding: 30px;
-    align-items: flex-start;
+    align-items: center;
 }
 .FavoriteListItem h1{
     font-size: 50px;
@@ -713,6 +717,7 @@ header{
 }
 .FavoriteListItem img{
     width: 100px;
+    border-radius: 6px;
   
 }
 .FavoriteListItem h3{
@@ -723,7 +728,6 @@ header{
     padding: 10px 0;
     color: white;
     font-size: 20px;
-    height: 70px;
 }
 .bottom-div-favorites{
     width: 100%;
@@ -733,6 +737,12 @@ header{
 }
 .bottom-div-favorites h3{
     color: #F7D21B;
+}
+.search-info{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 /* random page */
