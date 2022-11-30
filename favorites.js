@@ -36,19 +36,21 @@ async function FavoriteMovies() {
     ?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
     const response = await fetch(movie_URL);
     const data = await response.json();
-
-    displayFavorites(data);
+    displayFavorites(data, i);
   }
 }
 
-function displayFavorites(movie) {
-  console.log(movie);
-  console.log(movie.overview);
+function displayFavorites(movie, index) {
+  let genres = "";
+  console.log(movie.genres[0].name.length);
+  if (movie.genres[0].name.length > 0) {
+    genres += movie.genres[0].name;
+  }
+  if (movie.genres[1].name.length > 0) {
+    genres += ", " + movie.genres[1].name;
+  }
+  console.log(genres);
   let FavoriteListItem = document.createElement("div");
-  //   const dataTitle_raw = movie.orignal_title;
-
-  //   console.log(movie.orignal_title);
-  //   const dataTitle = dataTitle_raw.replace(" ", "_");
   FavoriteListItem.className = "FavoriteListItem";
   FavoriteListItem.innerHTML = `
            <div class = "favorite-poster">
@@ -57,7 +59,13 @@ function displayFavorites(movie) {
      <div class="search-info">
     <h1 class="favorites-title">${movie.original_title}</h1>
     <p class="favorites-desc">${movie.overview}</p>
-    <p class="favorites-desc> test</p>
+    <div class="bottom-div-favorites">
+    <div class=""genres-release">
+    <h3>${genres}<h3>
+    <h3>Release Date: ${movie.release_date.substr(0, 4)}<h3>
+    </div>
+    <h1 class="favorites-rated">${topRatedArr[index][0].toFixed(1)}/5</h1>
+    </div>
      </div>`;
   moviesContainer.appendChild(FavoriteListItem);
 }

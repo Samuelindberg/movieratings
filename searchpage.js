@@ -9,6 +9,7 @@ let movieRating = {
 };
 let searchDesc = document.getElementById("search-desc");
 let title = document.getElementById("search-title");
+let searchGenres = document.getElementById("search-genres");
 let poster = document.getElementById("poster");
 let ratingSubmit = document.getElementById("submit-rating");
 let acting = {
@@ -79,7 +80,16 @@ async function searchAPI(id) {
   console.log(data);
   title.innerText = data.title;
   poster.innerHTML = `<img src = https://image.tmdb.org/t/p/original/${data.poster_path}>`;
-  document.getElementById("releasedate").innerText = data.release_date;
+  searchGenres.innerHTML =
+    "<span id=genres-span>Genres:</span> " +
+    data.genres[0].name +
+    ", " +
+    data.genres[1].name +
+    ", " +
+    data.genres[2].name;
+  document.getElementById("releasedate").innerHTML =
+    "<span id=release-span>Release Date:</span> " +
+    data.release_date.substr(0, 4);
   let dataTitle_raw = data.title;
   let dataTitle = dataTitle_raw.replace(" ", "_");
   descAPI(dataTitle);

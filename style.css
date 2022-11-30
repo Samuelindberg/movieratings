@@ -523,38 +523,60 @@ header{
    
  }
  #search-title{
+    color: black;
+    
     font-size: 130px;
-
-    color: #F7D21B;
     text-align: end;
      width:900px;
  }
  #search-desc-container{
     width: 40%;
     height: 70vh;
-    background-color: white;
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
     font-family: 'Josefin Sans', sans-serif;
-    gap: 60px;
-
  }
  #poster img{
     width: 500px;
     /* background-attachment: fixed; */
  }
  #search-desc{
+    padding: 20px 20px;
+    border-top: 2px solid orangered;
+    background-color: #FF8D22;
+    color: white;
     text-align: end;
     width: 100%;
     font-size: 50px;
-    font-weight: 200;
+    font-weight: 300;
+    font-family: 'Josefin Sans', sans-serif;
  }
  #releasedate{
-    color: #FF8D22;
+    padding-top: 20px;
+    color:#474746;
     font-size: 40px;
+    font-weight: 200;
+ }
+ #release-span{
+    font-weight: 400;
+    color: #FF8D22;
+ }
+ #search-desc-container h3{
+    font-size: 40px;
+    color:#474746;
+    font-weight: 200;
+ }
+ #genres-span{
+    color: #FF8D22;
+    font-weight: 400;
+ }
+ #desc-title{
+    padding-top: 20px;
+    font-size: 40px;
+    color: #FF8D22;
  }
 
 /* rating section */
@@ -677,15 +699,40 @@ header{
     height: 50px;
 }
 .FavoriteListItem{
+    height: 230px;
     display: flex;
-    
     font-family: "josefin Sans";
+    background-color: #ff8d22;
+    border: white 10px solid;
+    padding: 30px;
+    align-items: flex-start;
 }
 .FavoriteListItem h1{
     font-size: 50px;
+    color: #F7D21B;
 }
 .FavoriteListItem img{
-    width: 150px;
+    width: 100px;
+  
+}
+.FavoriteListItem h3{
+    padding:5px 0;
+    color: white;
+}
+.FavoriteListItem p{
+    padding: 10px 0;
+    color: white;
+    font-size: 20px;
+    height: 70px;
+}
+.bottom-div-favorites{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bottom-div-favorites h3{
+    color: #F7D21B;
 }
 
 /* random page */
