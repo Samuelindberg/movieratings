@@ -8,8 +8,9 @@ hamburgerIconContainer = {
   menuOpen: false,
 };
 const searchIcon = document.getElementById("search-icon");
-const searchIconInput = document.getElementById("#search-icon-input");
+const searchIconInput = document.getElementById("search-icon-input");
 const searchIconCont = document.getElementById("search-icon-container");
+searchIconInput.style.width = "0px";
 const yourself = document.getElementById("yourself");
 const rateHover = document.getElementById("intro-text");
 const yourselfMovies = [
@@ -47,6 +48,7 @@ if (page === "index.html") {
   });
 
   inputSearch.addEventListener("click", () => {
+    console.log("test");
     inputSearch.style.transform = "scale(1.1)";
   });
 }
@@ -71,9 +73,14 @@ const menuOpen = () => {
     hamburgerIconContainer.bar3.style.backgroundColor = "white";
   }
 };
-// search icon window
 searchIcon.addEventListener("click", () => {
-  searchIconCont.style.width = "200px";
+  console.log(searchIconInput.style.width);
+  if (searchIconInput.style.width == "0px") {
+    searchIconInput.style.width = "250px";
+  } else {
+    searchIconInput.style.width = "0px";
+  }
+
   // searchIconInput.style.backgroundColor = "#F7D21B";
 });
 // rating

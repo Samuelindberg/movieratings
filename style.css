@@ -28,26 +28,33 @@ header{
     z-index: 16;
 }
 #search-icon-container{
-    display: flex;
-    align-items: center;
-    height: 200px;
-    width: 40px;
+    transform: translateY(0px);
+    margin-right: 20px;
     border-radius: 40px;
-    transition: 300ms ease-in-out;
+    
 }
 #search-icon{
     opacity: 1;
     width: 30px;   
-    position: absolute;
 }
 #search-icon-input{
     height: 45px;
-    width: 100%;
+    width:0;
     background-color: white;
     border-radius: 40px;
     border: none;
+    transition:  900ms;
+    transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
     /* opacity: 0; */
-    border: blue 1px solid;
+}
+#search-icon-results{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.test{
+    border:1px solid blue;
+    height: 100px;
+    width: 100%
 }
 .hamburger-bar{
     width: 60px;

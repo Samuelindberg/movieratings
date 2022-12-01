@@ -6,10 +6,7 @@ for (let i = 0, len = localStorage.length; i < len; ++i) {
   movie = localStorage.getItem(localStorage.key(i));
   const movieId = localStorage.key(i);
   allMovies = { movie };
-  //   console.log(movieIdString);
   let parseSingle = JSON.parse(localStorage.getItem(movieId));
-  //   console.log(movieId);
-  //   console.log(parseSingle.totalrating);
   parseSingle.id = movieId;
   checkRating(parseSingle.totalrating, movieId);
 }
