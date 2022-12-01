@@ -7,6 +7,7 @@ hamburgerIconContainer = {
   bar3: document.getElementById("bar3"),
   menuOpen: false,
 };
+let searchIcon = document.getElementById("search-icon");
 const yourself = document.getElementById("yourself");
 const rateHover = document.getElementById("intro-text");
 const yourselfMovies = [
@@ -38,22 +39,6 @@ let moviePoster = "";
 const favoriteList = document.querySelector(".favorite-movies-container");
 
 if (page === "index.html") {
-  //   rateHover.addEventListener("mouseover", () => {
-  //     rateHover.style.color = "#FE4500";
-  //     if (movieNumber == 0) {
-  //       rateHover.style.display = "block";
-  //       rateHover.innerText = "like " + yourselfMovies[movieNumber];
-  //     } else {
-  //       rateHover.innerText = "Even " + yourselfMovies[2];
-
-  //       rateHover.innerText = "or " + yourselfMovies[movieNumber];
-  //     }
-  //     if (movieNumber >= yourselfMovies.length) {
-  //       movieNumber--;
-  //     }
-  //     console.log(movieNumber);
-  //     movieNumber++;
-  //   });
   rateHover.addEventListener("click", () => {
     rateHover.innerText = "or " + yourselfMovies[movieNumber];
     movieNumber++;
@@ -84,6 +69,8 @@ const menuOpen = () => {
     hamburgerIconContainer.bar3.style.backgroundColor = "white";
   }
 };
+// search icon window
+
 // rating
 
 function StarsHover(n, cat) {
@@ -149,16 +136,18 @@ function findMovies() {
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
   for (let idx = 0; idx < 4; idx++) {
+    console.log(movies);
     let movieListItem = document.createElement("div");
     movieListItem.className = "movieListItem";
-    movieListItem.innerHTML = `
+    if (movies.results[idx].title)
+      movieListItem.innerHTML = `
             <div class = "search-item-thumbnail">
             <img src = https://image.tmdb.org/t/p/original/${movies.results[idx].poster_path}>
         </div>
-    <div class="search-info">
+    <div class="search-info-intropage">
     
         <h1 class="search-title">${movies.results[idx].title}</h1>
-        <p class="search-actors"> Actors:  </p>
+        <p class="search-list-genres"> Genres: ${movies.results[idx].title} </p>
         <p class="search-release">release year:${movies.results[idx].release_date}</p>
     </div>`;
     searchlist.appendChild(movieListItem);

@@ -78,16 +78,12 @@ async function searchAPI(id) {
   const response = await fetch(movie_URL);
   const data = await response.json();
   console.log(data);
+  CollectGenres(data);
   title.innerText = data.title;
   poster.innerHTML = `<img src = https://image.tmdb.org/t/p/original/${data.poster_path}>`;
-  searchGenres.innerHTML =
-    "Genres: <span id=search-genre-span>" +
-    data.genres[0].name +
-    ", " +
-    data.genres[1].name +
-    ", " +
-    data.genres[2].name;
-  +"</span>";
+  searchGenres.innerHTML = genres;
+  // data.genres[1].name;
+  ("</span>");
   document.getElementById("releasedate").innerHTML =
     "<span id=release-span>Release Date:</span> " +
     data.release_date.substr(0, 4);
@@ -95,7 +91,25 @@ async function searchAPI(id) {
   let dataTitle = dataTitle_raw.replace(" ", "_");
   descAPI(dataTitle);
 }
+function CollectGenres(movie) {
+  try {
+    genres =
+      "<span id=search-genre-span´>Genres: </span> " +
+      movie.genres[0].name +
+      " ";
+  } catch (error) {
+    console.log("error");
+  }
 
+  for (var i = 1; i < 3; i++) {
+    console.log(movie);
+    try {
+      genres += movie.genres[i].name + " ";
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
 async function descAPI(title) {
   console.log(title);
   const movie_URL = `https://omdbapi.com/?t=${title}&apikey=fc1fef96`;
@@ -129,8 +143,11 @@ function checkIfRated() {
         execution.checked[i].style.opacity = 1;
       }
     }
-    // ratingSumText.innerText = "RATING: " + movieRating.totalrating;
+    ratingSumText.innerText = "RATING: " + movieRating.totalrating.toFixed(1);
   }
+}
+if (!localStorage.key(searchId) === null) {
+  console.log("test");
 }
 
 ratingSubmit.addEventListener("click", () => {
