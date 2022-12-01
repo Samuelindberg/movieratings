@@ -94,7 +94,7 @@ async function searchAPI(id) {
 function CollectGenres(movie) {
   try {
     genres =
-      "<span id=search-genre-span´>Genres: </span> " +
+      "<span id=search-genre-span>Genres: </span> " +
       movie.genres[0].name +
       " ";
   } catch (error) {

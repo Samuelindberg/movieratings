@@ -14,28 +14,28 @@
     <header>
  
         <div id="hamburger-menu">
+            <div onclick="menuOpen()" id="hamburger-icon-search">
+                <div id="bar1" class="hamburger-bar"></div>
+                <div id="bar2" class="hamburger-bar"></div>
+                <div id="bar3" class="hamburger-bar"></div>
+            </div>
             <div id="hamburger-links">
                 <a href="index.html" class="menu-items" id="home">Home</a>
                 <a href="" class="menu-items" id="watched">Watched movies</a>
                 <a href="favorites.html" class="menu-items" id="goat">Your favorites</a>
                 <a href="" class="menu-items" id="favoritegenre">Favorite Genres</a>
               </div>
-            <div onclick="menuOpen()" id="hamburger-icon-search">
-                <div id="bar1" class="hamburger-bar"></div>
-                <div id="bar2" class="hamburger-bar"></div>
-                <div id="bar3" class="hamburger-bar"></div>
-            </div>
+          
             </div>
             <div class="logo">
                 <h1 class="my">M</h1>
                 <h1 class="my">y</h1>
                 <h1 id="logo">OVIES</h1>
             </div>
-            <div id="searchicon-container">
+            <div id="search-icon-container">
                 <img src="/img/search.svg" alt="" id="search-icon">
                 <input id="search-icon-input"type="search">
             </div>
-       
         </div>
     </header>
   <div id="wrapper-searchpage">
@@ -48,7 +48,7 @@
                 <p id="search-desc"></p>
                 <div id="btnAndRelease">
                     <p id="releasedate">RELEASE DATE: </p>
-                    <button id="btn-rate-it">RATE IT!</button>
+                    <a href=""><button id="btn-rate-it">RATE IT!</button></a>
                 </div>
               
             </div>

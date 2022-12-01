@@ -7,7 +7,9 @@ hamburgerIconContainer = {
   bar3: document.getElementById("bar3"),
   menuOpen: false,
 };
-let searchIcon = document.getElementById("search-icon");
+const searchIcon = document.getElementById("search-icon");
+const searchIconInput = document.getElementById("#search-icon-input");
+const searchIconCont = document.getElementById("search-icon-container");
 const yourself = document.getElementById("yourself");
 const rateHover = document.getElementById("intro-text");
 const yourselfMovies = [
@@ -70,7 +72,10 @@ const menuOpen = () => {
   }
 };
 // search icon window
-
+searchIcon.addEventListener("click", () => {
+  searchIconCont.style.width = "200px";
+  // searchIconInput.style.backgroundColor = "#F7D21B";
+});
 // rating
 
 function StarsHover(n, cat) {
@@ -142,13 +147,17 @@ function displayMovieList(movies) {
     if (movies.results[idx].title)
       movieListItem.innerHTML = `
             <div class = "search-item-thumbnail">
-            <img src = https://image.tmdb.org/t/p/original/${movies.results[idx].poster_path}>
+            <img src = https://image.tmdb.org/t/p/original/${
+              movies.results[idx].poster_path
+            }>
         </div>
     <div class="search-info-intropage">
     
         <h1 class="search-title">${movies.results[idx].title}</h1>
         <p class="search-list-genres"> Genres: ${movies.results[idx].title} </p>
-        <p class="search-release">release year:${movies.results[idx].release_date}</p>
+        <p class="search-release">release year: ${movies.results[
+          idx
+        ].release_date.substr(0, 4)}</p>
     </div>`;
     searchlist.appendChild(movieListItem);
     movieListItem.addEventListener("click", function () {
