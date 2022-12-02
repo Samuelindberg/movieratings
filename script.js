@@ -9,7 +9,8 @@ hamburgerIconContainer = {
 };
 const searchIcon = document.getElementById("search-icon");
 const searchIconInput = document.getElementById("search-icon-input");
-const searchIconCont = document.getElementById("search-icon-container");
+const searchIconCont = document.getElementById("search-icon-results");
+let searchTermIcon = searchIconInput.value.trim();
 searchIconInput.style.width = "0px";
 const yourself = document.getElementById("yourself");
 const rateHover = document.getElementById("intro-text");
@@ -46,7 +47,6 @@ if (page === "index.html") {
     rateHover.innerText = "or " + yourselfMovies[movieNumber];
     movieNumber++;
   });
-
   inputSearch.addEventListener("click", () => {
     console.log("test");
     inputSearch.style.transform = "scale(1.1)";
@@ -83,6 +83,7 @@ searchIcon.addEventListener("click", () => {
 
   // searchIconInput.style.backgroundColor = "#F7D21B";
 });
+
 // rating
 
 function StarsHover(n, cat) {
@@ -121,14 +122,22 @@ function checkRating(category) {
     category.glowingStars[i];
   }
 }
-
+function submitSearchIcon() {
+  console.log(searchTermIcon.length);
+  if (searchTermIcon.length > 0) {
+    searchMovie(searchTermIcon);
+    searchIconCont.style.display = "block";
+  } else {
+    searchIconCont.style.display = "none";
+  }
+}
 // api
 async function searchMovie(searchTitle) {
   // movie API
   const movie_URL = ` https://api.themoviedb.org/3/search/movie?api_key=1deb0326fc3b1f89371e34530d9740a3&query= ${searchTitle}`;
   const response = await fetch(movie_URL);
   const data = await response.json();
-  displayMovieList(data);
+  IconDisplayMovies(data);
 }
 function submitSearch() {
   console.log(inputSearch.value);
@@ -144,11 +153,30 @@ function findMovies() {
     searchlist.style.display = "none";
   }
 }
-
+function IconDisplayMovies(movies) {
+  let movieListItem = document.createElement("div");
+  for (i = 0; i < 6; i++) {
+    console.log(movies.results[i]);
+    movieListItem.innerHTML = `
+    <div class = "search-item-thumbnail">
+    <img src = https://image.tmdb.org/t/p/original/${
+      movies.results[i].poster_path
+    } onerror="this.src='/img/no-poster.svg';">
+</div>
+<div class="search-info-intropage">
+    
+<h1 class="icon-search-title">${movies.results[i].title}</h1>
+<p class="icon-search-list-genres"> Genres: ${movies.results[i].title} </p>
+<p class="icon-search-release">release year: ${movies.results[
+      i
+    ].release_date.substr(0, 4)}</p>
+</div>`;
+    searchIconCont.appendChild(movieListItem);
+  }
+}
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
   for (let idx = 0; idx < 4; idx++) {
-    console.log(movies);
     let movieListItem = document.createElement("div");
     movieListItem.className = "movieListItem";
     if (movies.results[idx].title)
@@ -156,7 +184,7 @@ function displayMovieList(movies) {
             <div class = "search-item-thumbnail">
             <img src = https://image.tmdb.org/t/p/original/${
               movies.results[idx].poster_path
-            }>
+            }  alt="/img/no-poster.svg">
         </div>
     <div class="search-info-intropage">
     

@@ -13,9 +13,8 @@ header{
     backdrop-filter: blur(9px);
     z-index: 1;
     position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
     height: 10vh;
@@ -40,7 +39,7 @@ header{
 #search-icon-input{
     height: 45px;
     width:0;
-    background-color: white;
+    background-color: blue;
     border-radius: 40px;
     border: none;
     transition:  900ms;
@@ -50,6 +49,9 @@ header{
 #search-icon-results{
     display: grid;
     grid-template-columns: 1fr;
+}
+.icon-search-title{
+    font-size: 40px;
 }
 .test{
     border:1px solid blue;
@@ -124,6 +126,7 @@ header{
     background-color: #ff8d22;
 }
 #logo{
+    position: absolute;
     font-family: 'Manrope', sans-serif;
     color: #ff8d22;
     font-size: 80px;

@@ -70,7 +70,9 @@ function displayFavorites(movie, index) {
     </div>
      </div>
      <div class = "favorite-poster">
-     <img src = https://image.tmdb.org/t/p/original/${movie.poster_path}>
+     <img src = https://image.tmdb.org/t/p/original/${
+       movie.poster_path
+     } alt="/img/no-poster.svg">
   </div>`;
   moviesContainer.appendChild(FavoriteListItem);
   genres = "";
