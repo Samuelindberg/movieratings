@@ -123,7 +123,7 @@ function checkRating(category) {
   }
 }
 function submitSearchIcon() {
-  console.log(searchTermIcon.length);
+  console.log(searchTermIcon);
   if (searchTermIcon.length > 0) {
     searchMovie(searchTermIcon);
     searchIconCont.style.display = "block";
@@ -137,10 +137,16 @@ async function searchMovie(searchTitle) {
   const movie_URL = ` https://api.themoviedb.org/3/search/movie?api_key=1deb0326fc3b1f89371e34530d9740a3&query= ${searchTitle}`;
   const response = await fetch(movie_URL);
   const data = await response.json();
+  if (inputSearch.value.length > 0) {
+    displayMovieList(data);
+  }
   IconDisplayMovies(data);
+  console.log(searchIconInput.value);
+  if (searchIconInput.value.length > 0) {
+    IconDisplayMovies(data);
+  }
 }
 function submitSearch() {
-  console.log(inputSearch.value);
   searchMovie(inputSearch.value);
 }
 
