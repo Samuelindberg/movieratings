@@ -15,6 +15,7 @@ header{
     position: fixed;
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    align-items: stretch;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
     height: 10vh;
@@ -39,7 +40,6 @@ header{
 #search-icon-input{
     height: 45px;
     width:0;
-    background-color: blue;
     border-radius: 40px;
     border: none;
     transition:  900ms;
@@ -47,8 +47,13 @@ header{
     /* opacity: 0; */
 }
 #search-icon-results{
+    position: absolute;
     display: grid;
     grid-template-columns: 1fr;
+}
+.MovieSearchItem{
+    background-color: #FF8D22;
+    width: fit-content;
 }
 .icon-search-title{
     font-size: 40px;
@@ -126,7 +131,7 @@ header{
     background-color: #ff8d22;
 }
 #logo{
-    position: absolute;
+    position: fixed;
     font-family: 'Manrope', sans-serif;
     color: #ff8d22;
     font-size: 80px;

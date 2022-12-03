@@ -10,7 +10,6 @@ hamburgerIconContainer = {
 const searchIcon = document.getElementById("search-icon");
 const searchIconInput = document.getElementById("search-icon-input");
 const searchIconCont = document.getElementById("search-icon-results");
-let searchTermIcon = searchIconInput.value.trim();
 searchIconInput.style.width = "0px";
 const yourself = document.getElementById("yourself");
 const rateHover = document.getElementById("intro-text");
@@ -26,6 +25,7 @@ let movieNumber = 0;
 let movieRateText = "rate " + yourselfMovies[movieNumber] + " yourself";
 const rate = "rate";
 const inputSearch = document.getElementById("search-input");
+
 const labelSearch = document.getElementById("search-label");
 const searchlist = document.getElementById("result-container");
 let movieClickID = 0;
@@ -122,10 +122,12 @@ function checkRating(category) {
     category.glowingStars[i];
   }
 }
+
 function submitSearchIcon() {
-  console.log(searchTermIcon);
-  if (searchTermIcon.length > 0) {
-    searchMovie(searchTermIcon);
+  const IconInputtext = searchIconInput.value.trim();
+  console.log(IconInputtext);
+  if (IconInputtext.length > 0) {
+    searchMovieIcon(IconInputtext);
     searchIconCont.style.display = "block";
   } else {
     searchIconCont.style.display = "none";
@@ -137,14 +139,14 @@ async function searchMovie(searchTitle) {
   const movie_URL = ` https://api.themoviedb.org/3/search/movie?api_key=1deb0326fc3b1f89371e34530d9740a3&query= ${searchTitle}`;
   const response = await fetch(movie_URL);
   const data = await response.json();
-  if (inputSearch.value.length > 0) {
-    displayMovieList(data);
-  }
+  displayMovieList(data);
+}
+async function searchMovieIcon(searchTitle) {
+  // movie API
+  const movie_URL = ` https://api.themoviedb.org/3/search/movie?api_key=1deb0326fc3b1f89371e34530d9740a3&query= ${searchTitle}`;
+  const response = await fetch(movie_URL);
+  const data = await response.json();
   IconDisplayMovies(data);
-  console.log(searchIconInput.value);
-  if (searchIconInput.value.length > 0) {
-    IconDisplayMovies(data);
-  }
 }
 function submitSearch() {
   searchMovie(inputSearch.value);
@@ -160,26 +162,30 @@ function findMovies() {
   }
 }
 function IconDisplayMovies(movies) {
-  let movieListItem = document.createElement("div");
-  for (i = 0; i < 6; i++) {
-    console.log(movies.results[i]);
+  console.log(movies);
+  searchIconCont.innerHTML = "";
+  // movieListItem.innerHTML = movies.results[0].title;
+  for (i = 0; i < 4; i++) {
+    let movieListItem = document.createElement("div");
+    movieListItem.className = "MovieSearchItem";
     movieListItem.innerHTML = `
-    <div class = "search-item-thumbnail">
-    <img src = https://image.tmdb.org/t/p/original/${
-      movies.results[i].poster_path
-    } onerror="this.src='/img/no-poster.svg';">
-</div>
-<div class="search-info-intropage">
-    
-<h1 class="icon-search-title">${movies.results[i].title}</h1>
-<p class="icon-search-list-genres"> Genres: ${movies.results[i].title} </p>
-<p class="icon-search-release">release year: ${movies.results[
-      i
-    ].release_date.substr(0, 4)}</p>
-</div>`;
+      <div class = "search-item-thumbnail">
+      <img src = https://image.tmdb.org/t/p/original/${
+        movies.results[i].poster_path
+      } onerror="this.src='/img/no-poster.svg';">
+  </div>
+  <div class="search-info-intropage">
+
+  <h1 class="icon-search-title">${movies.results[i].title}</h1>
+  <p class="icon-search-list-genres"> Genres: ${movies.results[i].title} </p>
+  <p class="icon-search-release">release year: ${movies.results[
+    i
+  ].release_date.substr(0, 4)}</p>
+  </div>`;
     searchIconCont.appendChild(movieListItem);
   }
 }
+
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
   for (let idx = 0; idx < 4; idx++) {
