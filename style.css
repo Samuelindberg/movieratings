@@ -10,17 +10,18 @@ html{
     background-color: #ff8d22;
 }
 header{
-    backdrop-filter: blur(9px);
-    z-index: 1;
+    backdrop-filter: blur(15px);
+    z-index: 5;
     position: fixed;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     align-items: stretch;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
-    height: 10vh;
+    height: 100px;
     width: 100vw;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.287);
     /* filter: blur(8px); */
 }
 #hamburger-icon{
@@ -28,6 +29,9 @@ header{
     z-index: 16;
 }
 #search-icon-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     transform: translateY(0px);
     margin-right: 20px;
     border-radius: 40px;
@@ -42,18 +46,32 @@ header{
     width:0;
     border-radius: 40px;
     border: none;
+    padding: 20px;
+    font-size: 20px;
     transition:  900ms;
+    font-family: 'Josefin Sans', sans-serif;
     transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
     /* opacity: 0; */
 }
 #search-icon-results{
-    position: absolute;
+    border-bottom-left-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    margin-top: 100px;
+    z-index: 4;
+    right: 0;
+    position: fixed;
     display: grid;
     grid-template-columns: 1fr;
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.287);
 }
 .MovieSearchItem{
-    background-color: #FF8D22;
-    width: fit-content;
+   padding: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    /* border-bottom: solid white 2px; */
+    /* border-left: solid white 2px; */
+    display: flex;
+    width: 600px;
 }
 .icon-search-title{
     font-size: 40px;
@@ -79,7 +97,7 @@ header{
     height: 100vh;
     background-color: orangered;
     position: fixed;
-    z-index: 15;
+    z-index: 4;
     transform: translateX(-100vw);
     display: flex;
     flex-direction: column;
@@ -131,7 +149,6 @@ header{
     background-color: #ff8d22;
 }
 #logo{
-    position: fixed;
     font-family: 'Manrope', sans-serif;
     color: #ff8d22;
     font-size: 80px;
@@ -173,6 +190,7 @@ header{
 .logo{
     z-index: 5;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 /* intro page */
