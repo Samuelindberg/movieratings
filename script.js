@@ -74,11 +74,12 @@ const menuOpen = () => {
   }
 };
 searchIcon.addEventListener("click", () => {
-  console.log(searchIconInput.style.width);
   if (searchIconInput.style.width == "0px") {
+    searchIconInput.style.padding = "20px";
     searchIconInput.style.width = "250px";
   } else {
     searchIconInput.style.width = "0px";
+    searchIconInput.style.padding = "0";
   }
 
   // searchIconInput.style.backgroundColor = "#F7D21B";
@@ -125,7 +126,6 @@ function checkRating(category) {
 
 function submitSearchIcon() {
   const IconInputtext = searchIconInput.value.trim();
-  console.log(IconInputtext);
   if (IconInputtext.length > 0) {
     searchMovieIcon(IconInputtext);
     searchIconCont.style.display = "block";
@@ -162,14 +162,28 @@ function findMovies() {
   }
 }
 function IconDisplayMovies(movies) {
-  console.log(movies);
+  let genres = "";
   searchIconCont.innerHTML = "";
   // movieListItem.innerHTML = movies.results[0].title;
   for (i = 0; i < 4; i++) {
+    // try {
+    //   genres = "Genres: " + movies.results[i].genres[0].name + " ";
+    // } catch (error) {
+    //   console.log("error");
+    // }
+    // for (var j = 1; j < 3; j++) {
+    //   console.log(movies);
+    //   try {
+    //     genres += movies.results[i].genres[j].name + " ";
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
+    getGenresSearch(movies.results[i]);
     let movieListItem = document.createElement("div");
     movieListItem.className = "MovieSearchItem";
     movieListItem.innerHTML = `
-      <div class = "search-item-thumbnail">
+      <div class = "icons-thumbnail">
       <img src = https://image.tmdb.org/t/p/original/${
         movies.results[i].poster_path
       } onerror="this.src='/img/no-poster.svg';">
@@ -177,7 +191,7 @@ function IconDisplayMovies(movies) {
   <div class="search-info-intropage">
 
   <h1 class="icon-search-title">${movies.results[i].title}</h1>
-  <p class="icon-search-list-genres"> Genres: ${movies.results[i].title} </p>
+  <p class="icon-search-list-genres">${getGenresSearch(movies.results[i])} </p>
   <p class="icon-search-release">release year: ${movies.results[
     i
   ].release_date.substr(0, 4)}</p>
@@ -185,7 +199,80 @@ function IconDisplayMovies(movies) {
     searchIconCont.appendChild(movieListItem);
   }
 }
+function getGenresSearch(movie) {
+  // console.log(movie);
+  // console.log(movie.genre_ids.length);
+  let genreIDs = {
+    28: "action",
+    12: "adventure",
+    16: "Animation",
+    35: "Comedy",
+    80: "Crime",
+    99: "Documentary",
+    18: "Drama",
+    10751: "Family",
+    14: "Fantasy",
+    36: "History",
+    27: "Horror",
+    10402: "Music",
+    9648: "Mystery",
+    10749: "Romance",
+    878: "Science Fiction",
+    10770: "TV Movie",
+    53: "Thriller",
+    10752: "War",
+    37: "Western",
+  };
+  let genres = "Genres";
+  switch (movie.genre_ids[0]) {
+    case 16:
+      genres += ", Aimation";
+      break;
+    case 28:
+      genres += ", Action";
+      break;
+    case 12:
+      genres += ", Adventure";
+      break;
+    case 35:
+      genres += ", Comedy";
+      break;
+    case 80:
+      genres += ", Crime";
+      break;
+    case 99:
+      genres += ", Documentary";
+      break;
+    case 18:
+      genres += ", Drama";
+      break;
+    case 10751:
+      genres += ", Family";
+      break;
+    case 14:
+      genres += ", Fantasy";
+      break;
+    case 36:
+      genres += ", History";
+      break;
+    case 27:
+      genres += ", Horror";
+      break;
+    case 10402:
+      genres += ", Music";
+      break;
+    case 9648:
+      genres += ", Mystery";
+      break;
+  }
+  // console.log(genreIDs);
 
+  let movieid = movie.genre_ids[0];
+  // console.log(movieid);
+  // console.log(genreIDs);
+  console.log(genres);
+  return genres;
+}
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
   for (let idx = 0; idx < 4; idx++) {
