@@ -48,13 +48,11 @@ if (page === "index.html") {
     movieNumber++;
   });
   inputSearch.addEventListener("click", () => {
-    console.log("test");
     inputSearch.style.transform = "scale(1.1)";
   });
 }
 
 const menuOpen = () => {
-  console.log(page);
   if (hamburgerIconContainer.bar1.style.backgroundColor == "white") {
     hamburgerLinks.style.animation = "hamburger-links-close 1s forwards";
     hamburgerIconContainer.bar1.style.transform = "rotate(0) translate(0,0)";
@@ -75,10 +73,14 @@ const menuOpen = () => {
 };
 searchIcon.addEventListener("click", () => {
   if (searchIconInput.style.width == "0px") {
+    searchIconInput.style.transition = "0s";
+    searchIconInput.style.border = "#FF8D22 solid 3px";
     searchIconInput.style.padding = "20px";
+    searchIconInput.style.transition = "900ms";
     searchIconInput.style.width = "250px";
   } else {
     searchIconInput.style.width = "0px";
+    searchIconInput.style.border = "none";
     searchIconInput.style.padding = "0";
   }
 
@@ -166,23 +168,11 @@ function IconDisplayMovies(movies) {
   searchIconCont.innerHTML = "";
   // movieListItem.innerHTML = movies.results[0].title;
   for (i = 0; i < 4; i++) {
-    // try {
-    //   genres = "Genres: " + movies.results[i].genres[0].name + " ";
-    // } catch (error) {
-    //   console.log("error");
-    // }
-    // for (var j = 1; j < 3; j++) {
-    //   console.log(movies);
-    //   try {
-    //     genres += movies.results[i].genres[j].name + " ";
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // }
     getGenresSearch(movies.results[i]);
     let movieListItem = document.createElement("div");
     movieListItem.className = "MovieSearchItem";
-    movieListItem.innerHTML = `
+    if (movies.results[i].title) {
+      movieListItem.innerHTML = `
       <div class = "icons-thumbnail">
       <img src = https://image.tmdb.org/t/p/original/${
         movies.results[i].poster_path
@@ -196,75 +186,83 @@ function IconDisplayMovies(movies) {
     i
   ].release_date.substr(0, 4)}</p>
   </div>`;
-    searchIconCont.appendChild(movieListItem);
+      searchIconCont.appendChild(movieListItem);
+      let movieId = movies.results[i].id;
+      console.log(movies.results[i]);
+      movieListItem.addEventListener("click", function () {
+        alert(movieId);
+        sessionStorage.setItem("movieId", movieId);
+        window.location.href = "search.html";
+      });
+    }
   }
 }
 function getGenresSearch(movie) {
   // console.log(movie);
   // console.log(movie.genre_ids.length);
-  let genreIDs = {
-    28: "action",
-    12: "adventure",
-    16: "Animation",
-    35: "Comedy",
-    80: "Crime",
-    99: "Documentary",
-    18: "Drama",
-    10751: "Family",
-    14: "Fantasy",
-    36: "History",
-    27: "Horror",
-    10402: "Music",
-    9648: "Mystery",
-    10749: "Romance",
-    878: "Science Fiction",
-    10770: "TV Movie",
-    53: "Thriller",
-    10752: "War",
-    37: "Western",
-  };
   let genres = "Genres";
-  switch (movie.genre_ids[0]) {
-    case 16:
-      genres += ", Aimation";
-      break;
-    case 28:
-      genres += ", Action";
-      break;
-    case 12:
-      genres += ", Adventure";
-      break;
-    case 35:
-      genres += ", Comedy";
-      break;
-    case 80:
-      genres += ", Crime";
-      break;
-    case 99:
-      genres += ", Documentary";
-      break;
-    case 18:
-      genres += ", Drama";
-      break;
-    case 10751:
-      genres += ", Family";
-      break;
-    case 14:
-      genres += ", Fantasy";
-      break;
-    case 36:
-      genres += ", History";
-      break;
-    case 27:
-      genres += ", Horror";
-      break;
-    case 10402:
-      genres += ", Music";
-      break;
-    case 9648:
-      genres += ", Mystery";
-      break;
+  for (let i = 0; i < movie.genre_ids.length; i++) {
+    switch (movie.genre_ids[i]) {
+      case 16:
+        genres += ", Aimation";
+        break;
+      case 28:
+        genres += ", Action";
+        break;
+      case 12:
+        genres += ", Adventure";
+        break;
+      case 35:
+        genres += ", Comedy";
+        break;
+      case 80:
+        genres += ", Crime";
+        break;
+      case 99:
+        genres += ", Documentary";
+        break;
+      case 18:
+        genres += ", Drama";
+        break;
+      case 10751:
+        genres += ", Family";
+        break;
+      case 14:
+        genres += ", Fantasy";
+        break;
+      case 36:
+        genres += ", History";
+        break;
+      case 27:
+        genres += ", Horror";
+        break;
+      case 10402:
+        genres += ", Music";
+        break;
+      case 9648:
+        genres += ", Mystery";
+        break;
+      case 10749:
+        genres += ", Romance";
+        break;
+      case 878:
+        genres += ", Science Fiction";
+        break;
+      case 10770:
+        genres += ", TV Movie";
+        break;
+      case 53:
+        genres += ", Thriller";
+        break;
+      case 10752:
+        genres += ", War";
+        break;
+      case 37:
+        genres += ", Western";
+        break;
+    }
   }
+
   // console.log(genreIDs);
 
   let movieid = movie.genre_ids[0];
@@ -295,10 +293,8 @@ function displayMovieList(movies) {
     </div>`;
     searchlist.appendChild(movieListItem);
     movieListItem.addEventListener("click", function () {
-      let movieTitle = movies.results[idx].title;
-      let releaseDate = movies.results[idx].release_date;
       let movieId = movies.results[idx].id;
-      let moviePoster = `<img src = https://image.tmdb.org/t/p/original/${movies.results[idx].poster_path}>`;
+      alert(movieId);
       sessionStorage.setItem("movieId", movieId);
       window.location.href = "search.html";
     });
@@ -313,7 +309,6 @@ async function descAPI(title) {
   const movie_URL = `https://omdbapi.com/?t=${dataTitle}&apikey=fc1fef96`;
   const response = await fetch(movie_URL);
   const data = await response.json();
-  console.log(data.plot);
 }
 function movieDetails() {
   movies.results[idx];
@@ -322,7 +317,6 @@ async function randomMovieApi(id) {
   const movie_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
   const response = await fetch(movie_URL);
   const data = await response.json();
-  // console.log(data.success);
   randomMovie(data);
   descAPI(data.title);
 }

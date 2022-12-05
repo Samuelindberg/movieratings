@@ -77,13 +77,10 @@ async function searchAPI(id) {
   const movie_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
   const response = await fetch(movie_URL);
   const data = await response.json();
-  console.log(data);
   CollectGenres(data);
   title.innerText = data.title;
   poster.innerHTML = `<img src = https://image.tmdb.org/t/p/original/${data.poster_path}>`;
   searchGenres.innerHTML = genres;
-  // data.genres[1].name;
-  ("</span>");
   document.getElementById("releasedate").innerHTML =
     "<span id=release-span>Release Date:</span> " +
     data.release_date.substr(0, 4);
@@ -102,7 +99,6 @@ function CollectGenres(movie) {
   }
 
   for (var i = 1; i < 3; i++) {
-    console.log(movie);
     try {
       genres += movie.genres[i].name + " ";
     } catch (error) {

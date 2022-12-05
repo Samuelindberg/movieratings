@@ -20,7 +20,7 @@ header{
     font-size: 2rem;
     height: 100px;
     width: 100vw;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.95);
     box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.287);
     /* filter: blur(8px); */
 }
@@ -42,26 +42,26 @@ header{
 }
 
 #search-icon-input{
+  border: none;
+    color: #FF8D22;
     height: 45px;
     width:0;
     border-radius: 40px;
-    border: none;
     font-size: 20px;
-    transition:  900ms;
     font-family: 'Josefin Sans', sans-serif;
     transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
 
     /* opacity: 0; */
 }
-input[type="search"]::-webkit-search-cancel-button {
+/* input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
     height: 100px;
     width: 100px;
    margin: 50px 0 0 40px;
-    /* background-image: url("/img/clear-sign.svg"); */
+    background-image: url("/img/clear-sign.svg");
     background-repeat: no-repeat;
     cursor: pointer;
-  }
+  } */
 #search-icon-results{
     border-bottom-left-radius: 10px;
     background: rgba(255, 255, 255, 0.85);
@@ -86,7 +86,7 @@ input[type="search"]::-webkit-search-cancel-button {
     width: 100px;
 }
 .MovieSearchItem:hover{
-    background-color: #ff8d22;
+    background: rgba(255, 255, 255, 0.85);
     
 }
 .icon-search-title{
@@ -553,7 +553,7 @@ input[type="search"]::-webkit-search-cancel-button {
  }
  @keyframes big-italic {
     0%{ text-shadow: 8px 8px orangered; transform: scale(100%);} 
-    50%{ text-shadow: 4px 4px orangered; transform: scale (150%);}
+    50%{ text-shadow: 4px 4px orangered; transform: scale(150%);}
     100%{text-shadow: 8px 8px orangered; transform:scale(100%);}
  }
 
@@ -567,11 +567,13 @@ input[type="search"]::-webkit-search-cancel-button {
 }
  .wrapper-search{
     width: 100vw;
+    height:100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    padding-top: 50px;
     gap: 30px;
     overflow-x: hidden;
+  
  }
  #wrapper-movie{
     display: flex;
@@ -587,7 +589,7 @@ input[type="search"]::-webkit-search-cancel-button {
  #search-title{
     box-sizing: content-box;
     color: #F7D21B;
-    font-size: 90px;
+    font-size: 70px;
     text-align: start;
      width:700px;
      border-bottom: 3px dotted white;
@@ -604,10 +606,12 @@ input[type="search"]::-webkit-search-cancel-button {
     position: relative;
     background-color: #FF8D22;
     font-family: 'Josefin Sans', sans-serif;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
  }
  #poster img{
     height: 800px;
-    border-radius: 18px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(77, 77, 77, 0.6);
     /* background-attachment: fixed; */
  }
  #search-desc{
@@ -690,7 +694,7 @@ color: white;
     margin-top: 200px;
     background-color: #ff8d22;
    border: #ff8d22 solid 2px;
-    height: 60vh;
+    height: 70vh;
     width: 80%;
     display: grid;
     grid-template-rows: 0.1fr auto;
