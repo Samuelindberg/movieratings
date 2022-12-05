@@ -271,6 +271,7 @@ function getGenresSearch(movie) {
 function displayMovieList(movies) {
   searchlist.innerHTML = "";
   for (let idx = 0; idx < 4; idx++) {
+    console.log(movies);
     let movieListItem = document.createElement("div");
     movieListItem.className = "movieListItem";
     if (movies.results[idx].title)
@@ -283,8 +284,11 @@ function displayMovieList(movies) {
     <div class="search-info-intropage">
     
         <h1 class="search-title">${movies.results[idx].title}</h1>
-        <p class="search-list-genres"> Genres: ${movies.results[idx].title} </p>
-        <p class="search-release">release year: ${movies.results[
+        <p class="search-list-genres"><span class ="genres-span">Genres:</span> ${getGenresSearch(
+          movies.results[idx]
+        )} </p>
+        <p class="icon-search-list-desc"> ${movies.results[idx].overview}</p>
+        <p class="search-release"><span class="release-span">release year:</span> ${movies.results[
           idx
         ].release_date.substr(0, 4)}</p>
     </div>`;
@@ -352,17 +356,23 @@ async function ratedMovies(id) {
 }
 function DisplayWatchedMovie(movie) {
   console.log(movie);
+  let genres = "";
+  for (i = 0; i < movie.genres.length; i++) {
+    genres += movie.genres[i].name + " ";
+  }
   let FavoriteListItem = document.createElement("div");
   FavoriteListItem.className = "FavoriteListItem";
   FavoriteListItem.innerHTML = `
      <div class="search-info">
     <h1 class="favorites-title">${movie.original_title}</h1>
+    <h3><span class="genre-span">Genres: </span>${genres}</h3>
     <p class="favorites-desc">${movie.overview}</p>
     <div class="bottom-div-favorites">
     <div class=""genres-release">
     <h3><h3>
     <h3>Release Date: ${movie.release_date.substr(0, 4)}<h3>
     </div>
+    <h1 class="favorites-rated">${10}/5</h1>
     </div>
      </div>
      <div class = "favorite-poster">

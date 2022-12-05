@@ -86,6 +86,9 @@ header{
     align-items: flex-start;
     width: 600px;
 }
+.icon-search-list-desc{
+    color: rgb(108, 108, 108);
+}
 .icon-desc{
     color: #FF8D22;
 }
@@ -774,8 +777,8 @@ color: #F7D21B;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
-
 .search-info-intropage{
     padding: 5px;
 }
@@ -786,12 +789,20 @@ color: #F7D21B;
     padding-top: 5px;
 text-align: start;
 }
-.icons-thumbnail img{
-    width: 150px;
+.search-item-thumbnail img{
+    width: 100px;
+}
+.release-span{
+    color: #FF8D22;
+    font-size: 20px;
+}
+.genres-span{
+    color: #FF8D22;
+    font-size: 20px;
 }
 .movieListItem{
-
     padding: 5px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.9);
     /* border-bottom: 2px dotted #F7D21B; */
     backdrop-filter: blur(15px);
@@ -831,8 +842,10 @@ text-align: start;
     height: 50px;
 }
 .FavoriteListItem{
-    padding:  10px 10px;
+    padding: 20px;
+    gap: 10px;
     height: 300px;
+    min-height: fit-content;
     display: flex;
     font-family: "josefin Sans";
     background-color: #ff8d22;
@@ -843,6 +856,7 @@ text-align: start;
     font-size: 50px;
     color: #F7D21B;
 }
+
 .FavoriteListItem img{
     width: 170px;
     border-radius: 6px;
@@ -932,4 +946,20 @@ text-align: start;
     width: 40%;
     font-size: 35px;
     display: none;
+}
+/* watched movies page */
+.wrapper-watched{
+    padding: 130px 40px 0 40px;
+}
+.watched-movies-container{
+    display: grid;
+    gap: 4px;
+    grid-template-columns: repeat(2,1fr);
+}
+.watched-poster img{
+    width: 100px;
+}
+
+.genre-span{
+    color: #F7D21B;
 }
