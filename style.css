@@ -43,7 +43,7 @@ header{
 
 #search-icon-input{
   border: none;
-    color: #FF8D22;
+    color:black;
     height: 45px;
     width:0;
     border-radius: 40px;
@@ -52,6 +52,9 @@ header{
     transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
 
     /* opacity: 0; */
+}
+#search-icon-input:focus{
+    outline: none;
 }
 /* input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
@@ -80,7 +83,17 @@ header{
     /* border-bottom: solid white 2px; */
     /* border-left: solid white 2px; */
     display: flex;
+    align-items: flex-start;
     width: 600px;
+}
+.icon-desc{
+    color: #FF8D22;
+}
+.icon-search-list-genres span{
+    color: #FF8D22;
+}
+.icon-search-release span{
+    color: #FF8D22;
 }
 .icons-thumbnail img{
     width: 100px;
@@ -261,7 +274,6 @@ header{
     transition: 400ms;
 }
 ::placeholder { 
-    color: orangered;
     opacity: 1;
   }
 
@@ -615,7 +627,6 @@ header{
     /* background-attachment: fixed; */
  }
  #search-desc{
-    padding: 10px;
     color: white;
     text-align: start;
     width: 100%;
@@ -650,6 +661,14 @@ color: white;
     font-size: 40px;
     font-weight: 400;
     color: #F7D21B;
+ }
+ #rated-rating{
+    color: #F7D21B;
+    font-size: 80px;
+ }
+ #rating-button{
+    display: flex;
+    align-items: center;
  }
  #btn-rate-it{
     background-color: orangered;
@@ -752,34 +771,32 @@ color: #F7D21B;
 
 /* sökruta */
 #result-container{
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
 }
-.search-result{
-    padding: 5px;
-    display: flex;
-    justify-content: space-around;
-    width: 400px;
-    max-height:200px;
-    background-color: blue;
-}
+
 .search-info-intropage{
     padding: 5px;
-
-
 }
-.search-item-thumbnail img{
-    width: 60px;
+.search-info-icon{
+    padding-left: 10px;
+}
+.search-info-icon *{
+    padding-top: 5px;
+text-align: start;
+}
+.icons-thumbnail img{
+    width: 150px;
 }
 .movieListItem{
-    padding: 7px;
+
+    padding: 5px;
     background: rgba(255, 255, 255, 0.9);
     /* border-bottom: 2px dotted #F7D21B; */
     backdrop-filter: blur(15px);
-
-    color: #FF8D22;
     font-family: 'Josefin Sans', sans-serif;
-    width: 400px;
+    width: 500px;
     display: flex;
     justify-content: flex-start;
     

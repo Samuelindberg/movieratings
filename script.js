@@ -108,7 +108,6 @@ function StarsHover(n, cat) {
 
 document.querySelectorAll(".acting-yellow-stars *").forEach((star) =>
   star.addEventListener("click", (event) => {
-    alert("funkar");
     for (i = 0; i <= 4; i++) {
       if (actingRating.glowingStars[i].style.opacity === 1) {
         actingRating.glowingStars[i].style.opacity = 1;
@@ -164,9 +163,7 @@ function findMovies() {
   }
 }
 function IconDisplayMovies(movies) {
-  let genres = "";
   searchIconCont.innerHTML = "";
-  // movieListItem.innerHTML = movies.results[0].title;
   for (i = 0; i < 4; i++) {
     getGenresSearch(movies.results[i]);
     let movieListItem = document.createElement("div");
@@ -178,11 +175,15 @@ function IconDisplayMovies(movies) {
         movies.results[i].poster_path
       } onerror="this.src='/img/no-poster.svg';">
   </div>
-  <div class="search-info-intropage">
+  <div class="search-info-icon">
 
   <h1 class="icon-search-title">${movies.results[i].title}</h1>
-  <p class="icon-search-list-genres">${getGenresSearch(movies.results[i])} </p>
-  <p class="icon-search-release">release year: ${movies.results[
+  <p class="icon-search-list-genres"><span>Genres:</span>${getGenresSearch(
+    movies.results[i]
+  )} </p>
+  <h2 class="icon-desc">Description</h1>
+  <p class="icon-search-list-desc"> ${movies.results[i].overview}</p>
+  <p class="icon-search-release"><span>release year:</span> ${movies.results[
     i
   ].release_date.substr(0, 4)}</p>
   </div>`;
@@ -200,74 +201,70 @@ function IconDisplayMovies(movies) {
 function getGenresSearch(movie) {
   // console.log(movie);
   // console.log(movie.genre_ids.length);
-  let genres = "Genres";
+
+  let genres = "";
+
   for (let i = 0; i < movie.genre_ids.length; i++) {
     switch (movie.genre_ids[i]) {
       case 16:
-        genres += ", Aimation";
+        genres += " Animation";
         break;
       case 28:
-        genres += ", Action";
+        genres += " Action";
         break;
       case 12:
-        genres += ", Adventure";
+        genres += " Adventure";
         break;
       case 35:
-        genres += ", Comedy";
+        genres += " Comedy";
         break;
       case 80:
-        genres += ", Crime";
+        genres += " Crime";
         break;
       case 99:
-        genres += ", Documentary";
+        genres += " Documentary";
         break;
       case 18:
-        genres += ", Drama";
+        genres += " Drama";
         break;
       case 10751:
-        genres += ", Family";
+        genres += " Family";
         break;
       case 14:
-        genres += ", Fantasy";
+        genres += " Fantasy";
         break;
       case 36:
-        genres += ", History";
+        genres += " History";
         break;
       case 27:
-        genres += ", Horror";
+        genres += " Horror";
         break;
       case 10402:
-        genres += ", Music";
+        genres += " Music";
         break;
       case 9648:
-        genres += ", Mystery";
+        genres += " Mystery";
         break;
       case 10749:
-        genres += ", Romance";
+        genres += " Romance";
         break;
       case 878:
-        genres += ", Science Fiction";
+        genres += " Science Fiction";
         break;
       case 10770:
-        genres += ", TV Movie";
+        genres += " TV Movie";
         break;
       case 53:
-        genres += ", Thriller";
+        genres += " Thriller";
         break;
       case 10752:
-        genres += ", War";
+        genres += " War";
         break;
       case 37:
-        genres += ", Western";
+        genres += " Western";
         break;
     }
   }
-
-  // console.log(genreIDs);
-
-  let movieid = movie.genre_ids[0];
-  // console.log(movieid);
-  // console.log(genreIDs);
   console.log(genres);
   return genres;
 }
@@ -294,7 +291,6 @@ function displayMovieList(movies) {
     searchlist.appendChild(movieListItem);
     movieListItem.addEventListener("click", function () {
       let movieId = movies.results[idx].id;
-      alert(movieId);
       sessionStorage.setItem("movieId", movieId);
       window.location.href = "search.html";
     });
@@ -334,4 +330,47 @@ function randomMovie(movie) {
   } else {
     generateMovie(movie);
   }
+}
+
+// watched movie section
+if (page === "watched.html") {
+  collectWatchedMovies();
+}
+function collectWatchedMovies() {
+  for (let i = 0, len = localStorage.length; i < len; ++i) {
+    const movieId = localStorage.key(i);
+    ratedMovies(movieId);
+  }
+}
+
+async function ratedMovies(id) {
+  const movie_URL = `https://api.themoviedb.org/3/movie/${id}
+    ?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
+  const response = await fetch(movie_URL);
+  const data = await response.json();
+  DisplayWatchedMovie(data);
+}
+function DisplayWatchedMovie(movie) {
+  console.log(movie);
+  let FavoriteListItem = document.createElement("div");
+  FavoriteListItem.className = "FavoriteListItem";
+  FavoriteListItem.innerHTML = `
+     <div class="search-info">
+    <h1 class="favorites-title">${movie.original_title}</h1>
+    <p class="favorites-desc">${movie.overview}</p>
+    <div class="bottom-div-favorites">
+    <div class=""genres-release">
+    <h3><h3>
+    <h3>Release Date: ${movie.release_date.substr(0, 4)}<h3>
+    </div>
+    </div>
+     </div>
+     <div class = "favorite-poster">
+     <img src = https://image.tmdb.org/t/p/original/${
+       movie.poster_path
+     } alt="/img/no-poster.svg">
+  </div>`;
+  document
+    .querySelector(".watched-movies-container")
+    .appendChild(FavoriteListItem);
 }

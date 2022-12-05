@@ -12,6 +12,7 @@ let title = document.getElementById("search-title");
 let searchGenres = document.getElementById("search-genres");
 let poster = document.getElementById("poster");
 let ratingSubmit = document.getElementById("submit-rating");
+let ratingButton = document.getElementById("btn-rate-it");
 let acting = {
   starsDisplayed: 0,
   checked: [
@@ -119,6 +120,10 @@ function checkIfRated() {
     console.log("movie does not exist");
   } else {
     movieRating = JSON.parse(localStorage.getItem(searchId));
+    console.log(movieRating.totalrating);
+    document.getElementById("rated-rating").innerHTML =
+      "Rated: " + movieRating.totalrating + "/5";
+    ratingButton.innerText = "Change";
     for (i = 0; i < 5; i++) {
       if (i <= movieRating.acting - 1) {
         acting.checked[i].style.opacity = 1;
@@ -142,10 +147,6 @@ function checkIfRated() {
     ratingSumText.innerText = "RATING: " + movieRating.totalrating.toFixed(1);
   }
 }
-if (!localStorage.key(searchId) === null) {
-  console.log("test");
-}
-
 ratingSubmit.addEventListener("click", () => {
   if (!Object.values(movieRating).some((value) => value === null)) {
     alert("saved!");
@@ -153,7 +154,6 @@ ratingSubmit.addEventListener("click", () => {
     alert("all criterias must be rated!");
   }
 });
-
 checkIfRated();
 
 function submitRating(criteria, rating, criteriaID) {
