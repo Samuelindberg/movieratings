@@ -38,7 +38,7 @@ header{
 }
 #search-icon{
     opacity: 1;
-    width: 30px;   
+    width: 40px;   
 }
 
 #search-icon-input{
@@ -107,6 +107,10 @@ header{
 }
 .icon-search-title{
     font-size: 40px;
+}
+#hamburger-menu{
+    display: flex;
+    align-items: center;
 }
 .hamburger-bar{
     width: 60px;
@@ -667,10 +671,11 @@ color: white;
  }
  #rated-rating{
     color: #F7D21B;
-    font-size: 80px;
+    font-size: 60px;
  }
  #rating-button{
     display: flex;
+    justify-content: flex-start;
     align-items: center;
  }
  #btn-rate-it{
@@ -692,7 +697,7 @@ color: white;
     flex-direction: column;
     width: 100%;
     gap: 30px;
-    align-items: center;
+    align-items: flex-start;
  }
  #btn-rate-it:hover{
     animation: rate-it-hover ease-in-out forwards 0.5s;

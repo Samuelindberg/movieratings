@@ -41,16 +41,13 @@ let movieId = "";
 let moviePoster = "";
 //favorites page
 const favoriteList = document.querySelector(".favorite-movies-container");
-
-if (page === "index.html") {
-  rateHover.addEventListener("click", () => {
-    rateHover.innerText = "or " + yourselfMovies[movieNumber];
-    movieNumber++;
-  });
-  inputSearch.addEventListener("click", () => {
-    inputSearch.style.transform = "scale(1.1)";
-  });
-}
+rateHover.addEventListener("click", () => {
+  rateHover.innerText = "or " + yourselfMovies[movieNumber];
+  movieNumber++;
+});
+inputSearch.addEventListener("click", () => {
+  inputSearch.style.transform = "scale(1.1)";
+});
 
 const menuOpen = () => {
   if (hamburgerIconContainer.bar1.style.backgroundColor == "white") {
