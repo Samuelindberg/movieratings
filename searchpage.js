@@ -154,7 +154,6 @@ ratingSubmit.addEventListener("click", () => {
     alert("all criterias must be rated!");
   }
 });
-checkIfRated();
 
 function submitRating(criteria, rating, criteriaID) {
   for (i = 0; i < 5; i++) {

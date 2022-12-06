@@ -1,6 +1,7 @@
 let path = window.location.pathname;
 let page = path.split("/").pop();
 const hamburgerLinks = document.getElementById("hamburger-links");
+let indexPage = false;
 hamburgerIconContainer = {
   bar1: document.getElementById("bar1"),
   bar2: document.getElementById("bar2"),
@@ -41,13 +42,16 @@ let movieId = "";
 let moviePoster = "";
 //favorites page
 const favoriteList = document.querySelector(".favorite-movies-container");
-rateHover.addEventListener("click", () => {
-  rateHover.innerText = "or " + yourselfMovies[movieNumber];
-  movieNumber++;
-});
-inputSearch.addEventListener("click", () => {
-  inputSearch.style.transform = "scale(1.1)";
-});
+console.log(!inputSearch === null);
+if (inputSearch) {
+  rateHover.addEventListener("click", () => {
+    rateHover.innerText = "or " + yourselfMovies[movieNumber];
+    movieNumber++;
+  });
+  inputSearch.addEventListener("click", () => {
+    inputSearch.style.transform = "scale(1.1)";
+  });
+}
 
 const menuOpen = () => {
   if (hamburgerIconContainer.bar1.style.backgroundColor == "white") {
@@ -173,7 +177,6 @@ function IconDisplayMovies(movies) {
       } onerror="this.src='/img/no-poster.svg';">
   </div>
   <div class="search-info-icon">
-
   <h1 class="icon-search-title">${movies.results[i].title}</h1>
   <p class="icon-search-list-genres"><span>Genres:</span>${getGenresSearch(
     movies.results[i]
@@ -188,9 +191,9 @@ function IconDisplayMovies(movies) {
       let movieId = movies.results[i].id;
       console.log(movies.results[i]);
       movieListItem.addEventListener("click", function () {
-        alert(movieId);
         sessionStorage.setItem("movieId", movieId);
         window.location.href = "search.html";
+        indexPage = false;
       });
     }
   }
@@ -343,7 +346,6 @@ function collectWatchedMovies() {
     ratedMovies(movieId);
   }
 }
-
 async function ratedMovies(id) {
   const movie_URL = `https://api.themoviedb.org/3/movie/${id}
     ?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
