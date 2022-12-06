@@ -109,8 +109,10 @@ header{
     font-size: 40px;
 }
 #hamburger-menu{
-    display: flex;
-    align-items: center;
+
+}
+#hamburger-icon{
+    transform: translateY(45%);
 }
 .hamburger-bar{
     width: 60px;
