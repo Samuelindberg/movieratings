@@ -2,15 +2,24 @@ let topRatedArr = [];
 let index = 0;
 let moviesContainer = document.querySelector(".favorite-movies-container");
 let genres = "";
-for (let i = 0, len = localStorage.length; i < len; ++i) {
-  movie = localStorage.getItem(localStorage.key(i));
-  const movieId = localStorage.key(i);
-  allMovies = { movie };
-  let parseSingle = JSON.parse(localStorage.getItem(movieId));
-  parseSingle.id = movieId;
-  checkRating(parseSingle.totalrating, movieId);
+// for (let i = 0, len = localStorage.length; i < len; ++i) {
+//   let movie = localStorage.getItem(localStorage.key(i));
+//   const movieId = localStorage.key(i);
+//   allMovies = { movie };
+//   let parseSingle = JSON.parse(localStorage.getItem(movieId));
+//   parseSingle.id = movieId;
+//   checkRating(parseSingle.totalrating, movieId);
+// }
+if (topRatedArr.length === 0) {
+  let noFavorites = document.createElement("div");
+  noFavorites.className = "noFavorites";
+  noFavorites.innerHTML = `<h1 id="noFavorites-title">Go <span id="rate-span">rate</span> some movies!</h1>`;
+  console.log(noFavorites.innerHTML);
+  document.querySelector("#hamburger-menu").appendChild(noFavorites);
+  document.getElementById("favorites-title").style.position = "fixed";
+} else {
+  console.log("success");
 }
-
 function checkRating(movie, id) {
   //   console.log(id);
   topRatedArr.push([movie, id]);
@@ -24,10 +33,10 @@ function checkRating(movie, id) {
     }
   }
 }
+
 FavoriteMovies();
 
 async function FavoriteMovies() {
-  console.log(topRatedArr);
   for (i = 0; i < topRatedArr.length; i++) {
     const movie_URL = `https://api.themoviedb.org/3/movie/${topRatedArr[i][1]}
     ?api_key=1deb0326fc3b1f89371e34530d9740a3&language=en-US`;
