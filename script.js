@@ -42,7 +42,6 @@ let movieId = "";
 let moviePoster = "";
 //favorites page
 const favoriteList = document.querySelector(".favorite-movies-container");
-console.log(!inputSearch === null);
 if (inputSearch) {
   rateHover.addEventListener("click", () => {
     rateHover.innerText = "or " + yourselfMovies[movieNumber];

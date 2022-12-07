@@ -108,21 +108,23 @@ function CollectGenres(movie) {
   }
 }
 async function descAPI(title) {
-  console.log(title);
+  // console.log(title);
   const movie_URL = `https://omdbapi.com/?t=${title}&apikey=fc1fef96`;
   const response = await fetch(movie_URL);
   const data = await response.json();
   searchDesc.innerText = data.Plot;
 }
 searchAPI(searchId);
+checkIfRated();
 function checkIfRated() {
+  console.log("localStorage.getItem(searchId)");
   if (localStorage.getItem(searchId) === null) {
     console.log("movie does not exist");
   } else {
     movieRating = JSON.parse(localStorage.getItem(searchId));
     console.log(movieRating.totalrating);
     document.getElementById("rated-rating").innerHTML =
-      "Rated: " + movieRating.totalrating + "/5";
+      "Rated: " + movieRating.totalrating.toFixed(1) + "/5";
     ratingButton.innerText = "Change";
     for (i = 0; i < 5; i++) {
       if (i <= movieRating.acting - 1) {
