@@ -402,9 +402,10 @@ header{
     #arrow-down{
         display: none;
     }
-    #difficult{
+    #random-generator h2{
         font-size: 60px;
         text-align: center;
+
     }
     #logo {
      font-size: 45px;
