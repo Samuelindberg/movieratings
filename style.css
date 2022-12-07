@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&family=Red+Hat+Display:ital,wght@0,300;0,400;1,300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500;700&family=Red+Hat+Display:ital,wght@0,300;0,400;1,300&display=swap');
 *{
     padding: 0;
     margin: 0;
@@ -198,7 +197,6 @@ header{
    
 
 #m{
-    padding-left: 50px;
     transform: translateY(3px);
     position: relative;
     color: orangered;
@@ -246,7 +244,7 @@ header{
     color: white;
     text-align: center;
     font-size: 80px;
-    font-family: 'Josefin Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
     margin-bottom: 20px;
 }
 #yourself{
@@ -255,7 +253,7 @@ header{
     animation: yourself-opacity normal 3s ;
     animation-delay: 1s;
     animation-fill-mode: forwards;
-    font-style: italic;
+    /* font-style: italic; */
     transition: 1000ms;
 }
 #yourself{
@@ -264,19 +262,13 @@ header{
 #rate{
     color: white;
 }
-#search-label{
-    font-family: 'Josefin Sans', sans-serif;
-    color: white;
-
-    font-size: 50px;
-    transition: 200ms;
-}
 #search-input{
     transform: translateY(100px);
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     width:450px;
     font-size: 25px;
+    font-weight: 200;
     height: 40px;
     border-radius: 20px;
     border: none;
@@ -359,20 +351,24 @@ header{
   background-size: cover;
 }
 #random-movie-title-intro{
-    font-family: 'Manrope', sans-serif;
-    font-size: 150px;
+       font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 7rem;
     max-width: 90vw;
-    color: #FF8D22;
+    text-align: center;
+    color: #F7D21B;
 }
 .random-title-container{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50vh;
-
+}
+#difficult{
+    font-weight: 600;
 }
 #random-generator{
- height: 80vh;
+ height: fit-content;
  background-color: white;
  background-color: #FF8D22;;
  color: white;
@@ -380,14 +376,15 @@ header{
  flex-direction: column;
  align-items: center;
  justify-content: space-evenly;
- font-family: 'Josefin Sans', sans-serif;
+ font-family: 'Poppins', sans-serif;
  font-size: 60px;
+ padding-bottom: 20px;
 }
 #random-button{
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    background-color: white;
-    color: #FF8D22;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    background-color: #F7D21B;
+    color: white;
     border: none;
     width: 400px;
     height: 90px;
@@ -396,12 +393,47 @@ header{
 }
 #random-button:hover{
     background-color: #FF8D22;
-    border: white solid 4px;
-    color: white;
+    border: #F7D21B solid 4px;
+    color: #F7D21B;
     transition: 200ms;
-    transform:translate(0,-10px)
+    transform: scale(1.10);
 }
-
+@media screen and (max-width:518px) {
+    #arrow-down{
+        display: none;
+    }
+    #difficult{
+        font-size: 60px;
+        text-align: center;
+    }
+    #logo {
+     font-size: 45px;
+    }
+    #m{
+        font-size: 45px;
+    }
+    #y{
+        font-size: 45px;
+    }
+    #intro-page{
+        padding: 180px 0 0 0;
+    }
+    #intro-page h1{
+        font-size: 45px;
+    }
+    #search-input{
+        width: 290px;
+    }
+    #wrapper{
+        position: absolute;
+    }
+    #random-movie-title-intro{
+font-size: 70px;
+    }
+    #random-button{
+        width: 300px;
+    }
+}
 
 /* week picks */
 #week-picks-container{
@@ -422,7 +454,6 @@ header{
     height: 100%;
      /* background-color: blue; */
 
-
 }
 #week-picks{
     top: 30%;
@@ -432,7 +463,6 @@ header{
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    font-family: 'Josefin Sans', sans-serif;
     background-color: white;
     font-size: 60px;
     color: #72BE8B;
@@ -441,7 +471,7 @@ header{
 #week-pick-title{
     padding-top: 15%;
  color: white;
- font-family: 'Manrope', sans-serif;
+ font-family: 'Poppins', sans-serif;
  font-size: 80px;
 }
 
@@ -845,7 +875,7 @@ text-align: start;
 }
 #rate-span{
     color: #F7D21B;
-    font-style: italic;
+    /* font-style: italic; */
     font-size: 110px;
 }
 .wrapper-favorites{
