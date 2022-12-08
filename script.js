@@ -14,18 +14,18 @@ const searchIconInput = document.getElementById("search-icon-input");
 const searchIconCont = document.getElementById("search-icon-results");
 searchIconInput.style.width = "0px";
 const yourself = document.getElementById("yourself");
-const rateHover = document.getElementById("intro-text");
-const yourselfMovies = [
-  "Goodfellas",
-  "The Big Short",
-  "Kill Bill Vol.I",
-  "Kill Bill Vol.II",
-  "Big Daddy",
-];
+// const rateHover = document.getElementById("intro-text");
+// const yourselfMovies = [
+//   "Goodfellas",
+//   "The Big Short",
+//   "Kill Bill Vol.I",
+//   "Kill Bill Vol.II",
+//   "Big Daddy",
+// ];
 const test = document.getElementById("search-desc");
 let movieNumber = 0;
-let movieRateText = "rate " + yourselfMovies[movieNumber] + " yourself";
-const rate = "rate";
+// let movieRateText = "rate " + yourselfMovies[movieNumber] + " yourself";
+// const rate = "rate";
 const inputSearch = document.getElementById("search-input");
 
 const labelSearch = document.getElementById("search-label");
@@ -44,12 +44,10 @@ let moviePoster = "";
 //favorites page
 const favoriteList = document.querySelector(".favorite-movies-container");
 if (inputSearch) {
-  rateHover.addEventListener("click", () => {
-    rateHover.innerText = "or " + yourselfMovies[movieNumber];
-    movieNumber++;
-  });
   inputSearch.addEventListener("click", () => {
     inputSearch.style.transform = "scale(1.1)";
+    document.querySelector("#intro-text").style.display = "none";
+    document.querySelector("#intro-text2").style.display = "none";
     document.querySelector("#intro-page").style.paddingTop = "100px";
     document.querySelector("#arrow-down").style.display = "none";
   });
@@ -81,7 +79,8 @@ searchIcon.addEventListener("click", () => {
     searchIconInput.style.padding = "20px";
     searchIconInput.style.transition = "900ms";
     searchIconInput.style.width = "250px";
-    if (document.body.clientWidth) {
+    if (document.body.clientWidth < 716) {
+      document.getElementById("search-icon-results").style.width = "100vw";
       console.log(document.body.clientWidth);
       document.querySelector(".logo").style.display = "none";
       document.querySelector("#search-icon-container").style.width = "100vw";
