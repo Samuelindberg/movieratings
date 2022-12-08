@@ -1148,14 +1148,19 @@ text-align: start;
  #btn-rate-it{
     margin: 0;
  }
-#total-rating{
-    
+ #btnAndRelease{
+    padding-top: 25px;
+    flex-direction: row;
+}
+#releasedate{
+    padding: 0;
 }
 
 }
 @media screen and (max-width:708px) {
     #rating-container{
-        margin-top: 30px;
+        margin-top: 0;
+        padding-top: 30px;
    grid-template-columns: 80vw; 
    grid-template-rows: auto;
    height: fit-content;
@@ -1176,6 +1181,45 @@ text-align: start;
     }
     .wrapper-search{
         padding-top: 60px;
+    }   
+    #search-title{
+        font-size: 2rem;
+    } 
+    #search-desc-container h3{
+        font-size: 1.5rem;
     }
-    
+    #desc-title{
+        padding: 0;
+        font-size: 1.5rem;
+    }
+    #search-desc{
+        font-size: 1.2rem;
+    }
+    #releasedate{
+        font-size: 1.5rem;
+    }
+    #rated-rating{
+        font-size: 1.6rem;
+    }
+    #rating-button{
+        flex-direction: column;
+    }
+}
+@media screen and (max-width:821px){
+    #btnAndRelease{
+        flex-direction: column;
+    }
+    #btn-rate-it
+    {
+        width: 170px;
+    }
+    .wrapper-search{
+        padding-top: 30px;
+    }
+}
+@media screen and (max-width:1734px) and (min-height:1322px){
+    #poster img{
+        height: 60vh;
+        width: auto;
+    }
 }
