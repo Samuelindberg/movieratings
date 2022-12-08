@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500;700&family=Red+Hat+Display:ital,wght@0,300;0,400;1,300&display=swap');
+*:hover{
+    cursor: pointer;
+}
 *{
     padding: 0;
     margin: 0;
@@ -80,7 +83,7 @@ header{
 }
 .MovieSearchItem{
    padding: 20px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     /* border-bottom: solid white 2px; */
     /* border-left: solid white 2px; */
     display: flex;
@@ -88,6 +91,9 @@ header{
     width: 600px;
 }
 .icon-search-list-desc{
+    z-index: 20;
+    overflow-y: hidden;
+    height: 50px;
     color: rgb(108, 108, 108);
 }
 .icon-desc{
@@ -103,14 +109,18 @@ header{
     width: 100px;
 }
 .MovieSearchItem:hover{
-    background: rgba(255, 255, 255, 0.85);
+    background: rgb(255, 255, 255);
+    cursor: default;
     
 }
 .icon-search-title{
     font-size: 40px;
 }
 #hamburger-menu{
-
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-bottom: 50px;
 }
 #hamburger-icon{
     transform: translateY(45%);
@@ -265,10 +275,10 @@ header{
 #search-input{
     transform: translateY(100px);
     font-family: 'Poppins', sans-serif;
+    font-weight: 500;
     text-align: center;
     width:450px;
     font-size: 25px;
-    font-weight: 200;
     height: 40px;
     border-radius: 20px;
     border: none;
@@ -368,7 +378,7 @@ header{
     font-weight: 600;
 }
 #random-generator{
- height: fit-content;
+ height: 800px;
  background-color: white;
  background-color: #FF8D22;;
  color: white;
@@ -398,7 +408,11 @@ header{
     transition: 200ms;
     transform: scale(1.10);
 }
-@media screen and (max-width:518px) {
+@media screen and (max-width:520px) {
+    #hamburger-links{
+        width: 100vw;
+        background-color: #F7D21B;
+    }
     #arrow-down{
         display: none;
     }
@@ -422,6 +436,9 @@ header{
     #intro-page h1{
         font-size: 45px;
     }
+    .intro-text{
+        font-size: 20px;
+    }
     #search-input{
         width: 290px;
     }
@@ -433,7 +450,30 @@ font-size: 70px;
     }
     #random-button{
         width: 300px;
+        height: 50px;
     }
+    .random-title-container{
+        height: 30vh;
+    }
+    .results-container{
+        width: 150px;
+    }
+    .icon-search-list-desc{
+        width: 130px;
+        font-size: 10px;
+    }
+    .movieListItem{
+        width: 100%;
+      justify-content: space-around;
+    }
+  #intro-page .fulldesc{
+    font-size: 15px;
+  }
+    #intro-page .search-title{
+       font-size: 20px;
+       width: 200px;
+    }
+
 }
 
 /* week picks */
@@ -846,7 +886,7 @@ text-align: start;
     background: rgba(255, 255, 255, 0.9);
     /* border-bottom: 2px dotted #F7D21B; */
     backdrop-filter: blur(15px);
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     width: 500px;
     display: flex;
     justify-content: flex-start;
@@ -857,11 +897,10 @@ text-align: start;
     transition: 100ms;
 }
 .movieListItem h1{
-    font-size: 30px;
+    font-size: 20px;
 }
 /* favorites page */
 .noFavorites{
-    
     transition: 200ms;
  width: 100vw;
  height: 100vh;
@@ -889,7 +928,7 @@ text-align: start;
     width: 100%;
     text-align: center;
     font-size: 110px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: orangered;
 }
 .favorite-movies-container{

@@ -1,5 +1,6 @@
 let path = window.location.pathname;
 let page = path.split("/").pop();
+let expandState = false;
 const hamburgerLinks = document.getElementById("hamburger-links");
 let indexPage = false;
 hamburgerIconContainer = {
@@ -49,6 +50,8 @@ if (inputSearch) {
   });
   inputSearch.addEventListener("click", () => {
     inputSearch.style.transform = "scale(1.1)";
+    document.querySelector("#intro-page").style.paddingTop = "100px";
+    document.querySelector("#arrow-down").style.display = "none";
   });
 }
 
@@ -78,6 +81,14 @@ searchIcon.addEventListener("click", () => {
     searchIconInput.style.padding = "20px";
     searchIconInput.style.transition = "900ms";
     searchIconInput.style.width = "250px";
+    if (document.body.clientWidth) {
+      console.log(document.body.clientWidth);
+      document.querySelector(".logo").style.display = "none";
+      document.querySelector("#search-icon-container").style.width = "100vw";
+      document.querySelector("#search-icon-container").style.left = 0;
+      // document.querySelector("#hamburger-icon").style.display = "none";
+      document.querySelector("header").style.display = "flex";
+    }
   } else {
     searchIconInput.style.width = "0px";
     searchIconInput.style.border = "none";
@@ -286,7 +297,10 @@ function displayMovieList(movies) {
         <p class="search-list-genres"><span class ="genres-span">Genres:</span> ${getGenresSearch(
           movies.results[idx]
         )} </p>
-        <p class="icon-search-list-desc"> ${movies.results[idx].overview}</p>
+        <p   class="icon-search-list-desc" id="desc${idx}"> ${
+        movies.results[idx].overview
+      }</p>
+      <h1 onclick="expandDesc(${idx}) id="expand-desc${idx}" class="fulldesc" >Full</h1>
         <p class="search-release"><span class="release-span">release year:</span> ${movies.results[
           idx
         ].release_date.substr(0, 4)}</p>
@@ -295,9 +309,19 @@ function displayMovieList(movies) {
     movieListItem.addEventListener("click", function () {
       let movieId = movies.results[idx].id;
       sessionStorage.setItem("movieId", movieId);
+
+      console.log("goes to search page");
       window.location.href = "search.html";
     });
   }
+}
+function expandDesc(entry) {
+  console.log("expand");
+  console.log("Expands!");
+  expandState = !expandState;
+  document.getElementById("desc" + idx).style.height = "fit-content";
+  document.getElementById("expand-desc" + idx).innerText = "Less";
+  return true;
 }
 
 // random movie section
