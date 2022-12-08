@@ -80,7 +80,7 @@ searchIcon.addEventListener("click", () => {
     searchIconInput.style.transition = "900ms";
     searchIconInput.style.width = "250px";
     if (document.body.clientWidth < 716) {
-      document.getElementById("search-icon-results").style.width = "100vw";
+      document.getElementById("search-icon-results").style.width = "100vwx";
       console.log(document.body.clientWidth);
       document.querySelector(".logo").style.display = "none";
       document.querySelector("#search-icon-container").style.width = "100vw";
