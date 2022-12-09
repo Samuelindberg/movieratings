@@ -46,9 +46,9 @@ const favoriteList = document.querySelector(".favorite-movies-container");
 if (inputSearch) {
   inputSearch.addEventListener("click", () => {
     inputSearch.style.transform = "scale(1.1)";
-    document.querySelector("#intro-text").style.display = "none";
-    document.querySelector("#intro-text2").style.display = "none";
-    document.querySelector("#intro-page").style.paddingTop = "100px";
+    // document.querySelector("#intro-text").style.display = "none";
+    // document.querySelector("#intro-text2").style.display = "none";
+    // document.querySelector("#intro-page").style.paddingTop = "100px";
     document.querySelector("#arrow-down").style.display = "none";
   });
 }
