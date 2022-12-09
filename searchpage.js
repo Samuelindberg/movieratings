@@ -151,9 +151,12 @@ function checkIfRated() {
 }
 ratingSubmit.addEventListener("click", () => {
   if (!Object.values(movieRating).some((value) => value === null)) {
-    alert("saved!");
+    ratingSubmit.innerText="Saved!";
   } else {
-    alert("all criterias must be rated!");
+    ratingSubmit.innerText="all criterias must be rated!";
+    setTimeout(() => {
+      ratingSubmit.innerText="SAVE";
+    }, 4000);
   }
 });
 
