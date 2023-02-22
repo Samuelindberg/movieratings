@@ -24,7 +24,6 @@ function checkRating(movie, id) {
   //   console.log(id);
   topRatedArr.push([movie, id]);
   topRatedArr.sort(sortFunction);
-  //   console.log(topRatedArr[topRatedArr.length - 1]);
   function sortFunction(a, b) {
     if (a[0] === b[0]) {
       return 0;

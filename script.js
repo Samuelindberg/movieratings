@@ -72,6 +72,7 @@ const menuOpen = () => {
     hamburgerIconContainer.bar3.style.backgroundColor = "white";
   }
 };
+
 searchIcon.addEventListener("click", () => {
   if (searchIconInput.style.width == "0px") {
     searchIconInput.style.transition = "0s";
